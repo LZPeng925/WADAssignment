@@ -53,6 +53,13 @@
             </td>
         </tr>
         <tr><td class="auto-style8">
+            <asp:Label ID="Label8" runat="server" Text="Confirm Password: "></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr><td class="auto-style8">
             <asp:Label ID="Label5" runat="server" Text="E-mail: "></asp:Label>
             </td>
             <td>
