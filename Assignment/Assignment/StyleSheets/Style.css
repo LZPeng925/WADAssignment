@@ -1,0 +1,21 @@
+﻿header {
+    font-style:italic;
+    font-size:x-large;
+    text-align:center;
+    background-color:cyan;
+    color:black;
+}
+image{
+    image-resolution:snap;
+}
+.paragragh{
+    text-align:center;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rightside{
+    text-align:right;
+}
