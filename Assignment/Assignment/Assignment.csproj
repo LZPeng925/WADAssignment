@@ -74,7 +74,7 @@
     <Content Include="Artist.aspx" />
     <Content Include="CountingEntries.asax" />
     <Content Include="Customer.aspx" />
-    <Content Include="function.js" />
+    <Content Include="JavaScripts\function.js" />
     <Content Include="Picture\Logo.jfif" />
     <Content Include="PreHomePage.aspx" />
     <Content Include="Registration.aspx" />

@@ -245,6 +245,6 @@
 
         </div>
     </form>
-<script src="function.js"></script>
+<script src="JavaScripts/function.js"></script>
 </body>
 </html>
