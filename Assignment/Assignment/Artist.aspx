@@ -19,7 +19,7 @@
         <table class="auto-style2">
             <tr>
                 <td rowspan="5">&nbsp;</td>
-                <td colspan="4">Profile:<asp:LoginName ID="LoginName1" runat="server" FormatString="You LogIn As: {0}" />
+                <td colspan="4">Profile:<asp:Label ID="lblUsername" runat="server" Text="Label"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -91,6 +91,7 @@
             <asp:Label ID="lblCity" runat="server">City</asp:Label>
                 </td>
                 <td class="auto-style1">
+                    <asp:Label ID="lblDisplayCity" runat="server"></asp:Label>
                 <asp:DropDownList ID="ddlCity" runat="server">
                 </asp:DropDownList>
                 </td>

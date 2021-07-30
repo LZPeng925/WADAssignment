@@ -11,31 +11,64 @@ namespace Assignment
 {
     public partial class Artist : System.Web.UI.Page
     {
-        SqlConnection con;
-        string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        //con = new SqlConnection(strCon);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                lblUsername.Text = "You LogIn As : " + Session["Username"].ToString();
                 SqlConnection con;
                 string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strCon);
                 con.Open();
                 SqlCommand query = new SqlCommand("Select * from Users WHERE UserName = @username", con);
+                query.Parameters.AddWithValue("@username", Session["Username"].ToString());
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtFName.Text = reader.GetValue(3).ToString();
+                    txtLName.Text = reader.GetValue(4).ToString();
+                    txtUsername.Text = reader.GetValue(1).ToString();
+                    txtEmail.Text = reader.GetValue(6).ToString();
+                    txtCode.Text = reader.GetValue(11).ToString();
+                    txtCountry.Text = reader.GetValue(7).ToString();
+                    txtPhone.Text = reader.GetValue(5).ToString();
+                    txtStreet.Text = reader.GetValue(9).ToString();
+                    lblDisplayCity.Text = reader.GetValue(10).ToString();
+                    ddlState.Text = reader.GetValue(8).ToString();
+                    txtBankAcc.Text = reader.GetValue(13).ToString();
+                    ddlBank.Text = reader.GetValue(12).ToString();
+                    if(reader.GetValue(14).ToString() == "Artist")
+                    {
+                        txtFName.Enabled = false;
+                        txtLName.Enabled = false;
+                        txtUsername.Enabled = false;
+                        txtEmail.Enabled = false;
+                        txtCode.Enabled = false;
+                        txtCountry.Enabled = false;
+                        txtPhone.Enabled = false;
+                        txtStreet.Enabled = false;
+                        ddlState.Enabled = false;
+                        ddlCity.Visible = false;
+                        txtBankAcc.Enabled = false;
+                        ddlBank.Enabled = false;
+                    }
+                    else
+                    {
+                        txtFName.Enabled = false;
+                        txtLName.Enabled = false;
+                        txtUsername.Enabled = false;
+                        txtEmail.Enabled = false;
+                        txtCode.Enabled = false;
+                        txtCountry.Enabled = false;
+                        txtPhone.Enabled = false;
+                        txtStreet.Enabled = false;
+                        ddlState.Enabled = false;
+                        ddlCity.Visible = false;
+                        txtBankAcc.Visible = false;
+                        ddlBank.Visible = false;
+                    }
+                }
                 con.Close();
-                txtFName.Enabled = false;
-                txtLName.Enabled = false;
-                txtUsername.Enabled = false;
-                txtEmail.Enabled = false;
-                txtCode.Enabled = false;
-                txtCountry.Enabled = false;
-                txtPhone.Enabled = false;
-                txtStreet.Enabled = false;
-                ddlCity.Enabled = false;
-                ddlState.Enabled = false;
-                txtBankAcc.Visible = false;
-                ddlBank.Visible = false;
             }
         }
 
@@ -129,8 +162,9 @@ namespace Assignment
                 txtStreet.Enabled = true;
                 txtBankAcc.Enabled = true;
                 ddlBank.Enabled = true;
-                ddlCity.Enabled = true;
+                ddlCity.Visible = true;
                 ddlState.Enabled = true;
+                lblDisplayCity.Visible = false;
             }
             else
             {

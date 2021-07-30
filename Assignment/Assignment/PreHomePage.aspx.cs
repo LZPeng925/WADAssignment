@@ -29,6 +29,8 @@ namespace Assignment
             {
                 if(reader.GetValue(2).ToString() == txtPassword.Text)
                 {
+                    Session["Username"] = txtUserName.Text;
+                    Response.Redirect("Artist.aspx");
                     ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('You has successfully LogIn!!!'); window.location = '" + Page.ResolveUrl("~/Artist.aspx") + "';", true);
                 }
                 else
