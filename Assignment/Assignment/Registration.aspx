@@ -113,10 +113,10 @@
                 <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style22">
-            <asp:Label ID="Label6" runat="server" Text="Phone No: "></asp:Label>
+            <asp:Label ID="lblDisplayName" runat="server"></asp:Label>
             </td>
             <td class="auto-style18">
-                <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+                <asp:TextBox type="password" ID="txtDisplayName" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr><td class="auto-style10">
@@ -154,10 +154,10 @@
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style24">
-                <asp:Label ID="lblCountry" runat="server">Country</asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="Phone No: "></asp:Label>
             </td>
             <td class="auto-style14">
-                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr><td class="auto-style15">
@@ -184,25 +184,36 @@
                 </asp:DropDownList>
             </td>
             <td class="auto-style25">
-                <asp:Label ID="lblStreet" runat="server">Street</asp:Label>
+                <asp:Label ID="lblCountry" runat="server">Country</asp:Label>
             </td>
             <td class="auto-style16">
-                <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr><td class="auto-style10">
             <asp:Label ID="lblCity" runat="server">City</asp:Label>
             </td>
             <td class="auto-style11">
-                <asp:DropDownList ID="ddlCity" runat="server">
+                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
             <td class="auto-style23">
-                <asp:Label ID="lblCode" runat="server">Code</asp:Label>
+                <asp:Label ID="lblStreet" runat="server">Street</asp:Label>
             </td>
             <td class="auto-style11">
+                <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr><td class="auto-style27">
+                <asp:Label ID="lblCode" runat="server">Code</asp:Label>
+            </td>
+            <td class="auto-style28">
                 <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
             </td>
+            <td class="auto-style29">
+                &nbsp;</td>
+            <td class="auto-style28">
+                &nbsp;</td>
         </tr>
         <tr><td class="auto-style27">
             <asp:Label ID="lblBank" runat="server" Text="Bank"></asp:Label>
@@ -221,20 +232,11 @@
                 </asp:DropDownList>
             </td>
             <td class="auto-style29">
-                &nbsp;</td>
-            <td class="auto-style28">
-                &nbsp;</td>
-        </tr>
-        <tr><td class="auto-style27">
             <asp:Label ID="lblBankAcc" runat="server" Text="Bank Account"></asp:Label>
-            </td>
+                </td>
             <td class="auto-style28">
                 <asp:TextBox ID="txtBankAcc" runat="server"></asp:TextBox>
             </td>
-            <td class="auto-style29">
-                </td>
-            <td class="auto-style28">
-                &nbsp;</td>
         </tr>
         </table>
 </td></tr></table>

@@ -59,7 +59,7 @@
             <asp:Label ID="lblState" runat="server">State</asp:Label>
                 </td>
                 <td class="auto-style1">
-                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True" >
+                <asp:DropDownList ID="ddlState" runat="server" OnSelectedIndexChanged="ddlState_SelectedIndexChanged" AutoPostBack="True" OnLoad="ddlState_Load" >
                     <asp:ListItem>Johor</asp:ListItem>
                     <asp:ListItem>Kedah</asp:ListItem>
                     <asp:ListItem>Kelantan</asp:ListItem>
