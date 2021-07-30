@@ -13,10 +13,17 @@ namespace Assignment
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        //con = new SqlConnection(strCon);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                SqlConnection con;
+                string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strCon);
+                con.Open();
+                SqlCommand query = new SqlCommand("Select * from Users WHERE UserName = @username", con);
+                con.Close();
                 txtFName.Enabled = false;
                 txtLName.Enabled = false;
                 txtUsername.Enabled = false;
@@ -25,10 +32,10 @@ namespace Assignment
                 txtCountry.Enabled = false;
                 txtPhone.Enabled = false;
                 txtStreet.Enabled = false;
-                txtBankAcc.Enabled = false;
-                ddlBank.Enabled = false;
                 ddlCity.Enabled = false;
                 ddlState.Enabled = false;
+                txtBankAcc.Visible = false;
+                ddlBank.Visible = false;
             }
         }
 

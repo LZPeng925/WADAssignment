@@ -12,8 +12,6 @@ namespace Assignment
 {
     public partial class Registration : System.Web.UI.Page
     {
-        SqlConnection con;
-        string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,6 +29,15 @@ namespace Assignment
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand query = new SqlCommand("insert into Users values ('"+txtUsername.Text+"','"+txtPassword.Text + "','" + txtFName.Text + "','" + txtLName.Text + "','" + txtPhone.Text 
+            + "','" + txtEmail.Text + "','" + txtCountry.Text + "','" + ddlState.SelectedItem.ToString() + "','" + txtStreet.Text + "','" +  ddlCity.SelectedItem.ToString() 
+            + "','" + txtCode.Text+ddlBank.SelectedItem.ToString() + "','" + ddlBank.SelectedItem.ToString() + "','"+ txtBankAcc.Text + "','" + radUserType.SelectedItem.ToString() + "')", con);
+            query.ExecuteNonQuery();
+            con.Close();
             ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('You has successfully registered!!! Returning back to Home Page.'); window.location = '" + Page.ResolveUrl("~/PreHomePage.aspx") + "';", true);
         }
 

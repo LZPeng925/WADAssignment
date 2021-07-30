@@ -27,19 +27,23 @@
 
         <table style="width:100%;">
             <tr>
-                <td><h4 class="paragragh">RSD ArtWork Gallery Log in</h4></td>
+                <td><h2 class="paragragh">RSD ArtWork Gallery Log in</h2>
+                </td>
             </tr>
             <tr>
-            <td class="auto-style1"><p class="paragragh">Username: <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                  <br/>Password: <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <td class="auto-style1"><p class="paragragh">Username: <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                  <br/>Password: <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            </p>
+                <p class="paragragh">
+                    <asp:Label ID="lblDisplayMsg" runat="server"></asp:Label>
             </p>
                 <div class="center"><asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Registration.aspx">Don't have an account? Click here to register.</asp:LinkButton></div>
                 </td>
             </tr>
             </table>
             <div class="center">
-                <asp:Button ID="btnLogIn" runat="server" Text="Log In" />
-                &nbsp;<asp:Button ID="btnRegister" runat="server" Text="Register" PostBackUrl="~/Registration.aspx" />
+                <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" style="height: 29px" />
+                &nbsp;<asp:Button ID="btnRegister" runat="server" Text="Sing Up" style="height: 29px" PostBackUrl="~/Registration.aspx" />
             </div>
     </form>
 </body>

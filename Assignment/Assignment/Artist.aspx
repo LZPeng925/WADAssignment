@@ -19,7 +19,8 @@
         <table class="auto-style2">
             <tr>
                 <td rowspan="5">&nbsp;</td>
-                <td colspan="4">Profile:</td>
+                <td colspan="4">Profile:<asp:LoginName ID="LoginName1" runat="server" FormatString="You LogIn As: {0}" />
+                </td>
             </tr>
             <tr>
                 <td colspan="4">Profile Picture:</td>
@@ -49,40 +50,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style1"></td>
                 <td class="auto-style1">Email:</td>
                 <td class="auto-style1">
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </td>
-                <td class="auto-style1">Bank:</td>
-                <td class="auto-style1">
-                <asp:DropDownList ID="ddlBank" runat="server">
-                    <asp:ListItem>Public Bank</asp:ListItem>
-                    <asp:ListItem>Maybank</asp:ListItem>
-                    <asp:ListItem>RHB Bank</asp:ListItem>
-                    <asp:ListItem>AmBank</asp:ListItem>
-                    <asp:ListItem>HSBC Bank</asp:ListItem>
-                    <asp:ListItem>Hong Leong Bank</asp:ListItem>
-                    <asp:ListItem>CIMB</asp:ListItem>
-                    <asp:ListItem>OCBC Bank</asp:ListItem>
-                    <asp:ListItem>UOB</asp:ListItem>
-                </asp:DropDownList>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="4">&nbsp;</td>
-                <td class="auto-style1">
-                <asp:Label ID="lblCountry" runat="server">Country</asp:Label>
-                </td>
-                <td class="auto-style1">
-                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
-                </td>
-                <td class="auto-style1">Bank Account:</td>
-                <td class="auto-style1">
-                    <asp:TextBox ID="txtBankAcc" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
                 <td class="auto-style1">
             <asp:Label ID="lblState" runat="server">State</asp:Label>
                 </td>
@@ -106,6 +78,15 @@
                     <asp:ListItem>WP.Putrajaya</asp:ListItem>
                 </asp:DropDownList>
                 </td>
+            </tr>
+            <tr>
+                <td rowspan="4">&nbsp;</td>
+                <td class="auto-style1">
+                <asp:Label ID="lblCountry" runat="server">Country</asp:Label>
+                </td>
+                <td class="auto-style1">
+                <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+                </td>
                 <td class="auto-style1">
             <asp:Label ID="lblCity" runat="server">City</asp:Label>
                 </td>
@@ -126,6 +107,28 @@
                 </td>
                 <td class="auto-style1">
                 <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    Bank:</td>
+                <td class="auto-style1">
+                <asp:DropDownList ID="ddlBank" runat="server">
+                    <asp:ListItem>Public Bank</asp:ListItem>
+                    <asp:ListItem>Maybank</asp:ListItem>
+                    <asp:ListItem>RHB Bank</asp:ListItem>
+                    <asp:ListItem>AmBank</asp:ListItem>
+                    <asp:ListItem>HSBC Bank</asp:ListItem>
+                    <asp:ListItem>Hong Leong Bank</asp:ListItem>
+                    <asp:ListItem>CIMB</asp:ListItem>
+                    <asp:ListItem>OCBC Bank</asp:ListItem>
+                    <asp:ListItem>UOB</asp:ListItem>
+                </asp:DropDownList>
+                </td>
+                <td class="auto-style1">
+                    Bank Account:</td>
+                <td class="auto-style1">
+                    <asp:TextBox ID="txtBankAcc" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

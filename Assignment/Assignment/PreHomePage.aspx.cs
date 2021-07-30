@@ -11,11 +11,36 @@ namespace Assignment
 {
     public partial class PreHomePage : System.Web.UI.Page
     {
-        SqlConnection con;
-        string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnLogIn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand query = new SqlCommand("Select * from Users WHERE UserName = @Username", con);
+            query.Parameters.AddWithValue("Username", txtUserName.Text);
+            SqlDataReader reader = query.ExecuteReader();
+            if (reader.Read())
+            {
+                if(reader.GetValue(2).ToString() == txtPassword.Text)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('You has successfully LogIn!!!'); window.location = '" + Page.ResolveUrl("~/Artist.aspx") + "';", true);
+                }
+                else
+                {
+                    lblDisplayMsg.Text = "Username Or Password you entered is wrong.";
+                }
+            }
+            else
+            {
+                lblDisplayMsg.Text = "Username Not found.";
+            }
+            con.Close();
         }
     }
 }

@@ -73,7 +73,6 @@
     </Content>
     <Content Include="Artist.aspx" />
     <Content Include="CountingEntries.asax" />
-    <Content Include="Customer.aspx" />
     <Content Include="JavaScripts\function.js" />
     <Content Include="Picture\Logo.jfif" />
     <Content Include="PreHomePage.aspx" />
@@ -91,13 +90,6 @@
     </Compile>
     <Compile Include="CountingEntries.asax.cs">
       <DependentUpon>CountingEntries.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.aspx.cs">
-      <DependentUpon>Customer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer.aspx.designer.cs">
-      <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreHomePage.aspx.cs">
       <DependentUpon>PreHomePage.aspx</DependentUpon>
