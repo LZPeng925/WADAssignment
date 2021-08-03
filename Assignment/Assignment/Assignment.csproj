@@ -72,6 +72,8 @@
       <DependentUpon>ArtworkGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Artist.aspx" />
+    <Content Include="ArtManageDisplay.aspx" />
+    <Content Include="ArtworkManage.aspx" />
     <Content Include="CountingEntries.asax" />
     <Content Include="JavaScripts\function.js" />
     <Content Include="Picture\Logo.jfif" />
@@ -87,6 +89,20 @@
     </Compile>
     <Compile Include="Artist.aspx.designer.cs">
       <DependentUpon>Artist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtManageDisplay.aspx.cs">
+      <DependentUpon>ArtManageDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtManageDisplay.aspx.designer.cs">
+      <DependentUpon>ArtManageDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtworkManage.aspx.cs">
+      <DependentUpon>ArtworkManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtworkManage.aspx.designer.cs">
+      <DependentUpon>ArtworkManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CountingEntries.asax.cs">
       <DependentUpon>CountingEntries.asax</DependentUpon>

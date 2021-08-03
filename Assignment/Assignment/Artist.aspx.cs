@@ -4,8 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using System.IO;
+using System.Data;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.SessionState;
 
 namespace Assignment
 {
@@ -15,8 +18,7 @@ namespace Assignment
         {
             if (!IsPostBack)
             {
-                //lblUsername.Text = "You LogIn As : " + Session["Username"].ToString();
-                lblUsername.Text = "haha";
+                lblUsername.Text = "RSD";//Session["Username"].ToString();
                 SqlConnection con;
                 string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strCon);
@@ -26,24 +28,25 @@ namespace Assignment
                 SqlDataReader reader = query.ExecuteReader();
                 if (reader.Read())
                 {
-                    txtFName.Text = reader.GetValue(3).ToString();
-                    txtLName.Text = reader.GetValue(4).ToString();
-                    txtUsername.Text = reader.GetValue(1).ToString();
-                    txtEmail.Text = reader.GetValue(6).ToString();
-                    txtCode.Text = reader.GetValue(11).ToString();
-                    txtCountry.Text = reader.GetValue(7).ToString();
-                    txtPhone.Text = reader.GetValue(5).ToString();
-                    txtStreet.Text = reader.GetValue(9).ToString();
-                    lblDisplayCity.Text = reader.GetValue(10).ToString();
-                    ddlCity.Items.Add(reader.GetValue(10).ToString());
-                    ddlState.Text = reader.GetValue(8).ToString();
-                    txtBankAcc.Text = reader.GetValue(13).ToString();
-                    ddlBank.Text = reader.GetValue(12).ToString();
-                    if(reader.GetValue(14).ToString() == "Artist")
+                    txtFName.Text = reader.GetValue(4).ToString();
+                    txtLName.Text = reader.GetValue(5).ToString();
+                    txtDisplayName.Text = reader.GetValue(3).ToString();
+                    txtEmail.Text = reader.GetValue(7).ToString();
+                    txtCode.Text = reader.GetValue(12).ToString();
+                    txtCountry.Text = reader.GetValue(8).ToString();
+                    txtPhone.Text = reader.GetValue(6).ToString();
+                    txtStreet.Text = reader.GetValue(10).ToString();
+                    lblDisplayCity.Text = reader.GetValue(11).ToString();
+                    ddlCity.Items.Add(reader.GetValue(11).ToString());
+                    ddlState.Text = reader.GetValue(9).ToString();
+                    txtBankAcc.Text = reader.GetValue(14).ToString();
+                    ddlBank.Text = reader.GetValue(13).ToString();
+                    imgPicture.ImageUrl = reader.GetValue(16).ToString();
+                    if (reader.GetValue(15).ToString() == "Artist")
                     {
                         txtFName.Enabled = false;
                         txtLName.Enabled = false;
-                        txtUsername.Enabled = false;
+                        txtDisplayName.Enabled = false;
                         txtEmail.Enabled = false;
                         txtCode.Enabled = false;
                         txtCountry.Enabled = false;
@@ -58,7 +61,7 @@ namespace Assignment
                     {
                         txtFName.Enabled = false;
                         txtLName.Enabled = false;
-                        txtUsername.Enabled = false;
+                        txtDisplayName.Enabled = false;
                         txtEmail.Enabled = false;
                         txtCode.Enabled = false;
                         txtCountry.Enabled = false;
@@ -68,15 +71,12 @@ namespace Assignment
                         ddlCity.Visible = false;
                         txtBankAcc.Visible = false;
                         ddlBank.Visible = false;
+                        lblBank.Visible = false;
+                        lblBankAcc.Visible = false;
                     }
                 }
                 con.Close();
             }
-        }
-
-        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace Assignment
                 btnEdit.Text = "Confirm";
                 txtFName.Enabled = true;
                 txtLName.Enabled = true;
-                txtUsername.Enabled = true;
+                txtDisplayName.Enabled = true;
                 txtEmail.Enabled = true;
                 txtCode.Enabled = true;
                 txtCountry.Enabled = true;
@@ -103,7 +103,7 @@ namespace Assignment
                 btnEdit.Text = "Edit";
                 txtFName.Enabled = false;
                 txtLName.Enabled = false;
-                txtUsername.Enabled = false;
+                txtDisplayName.Enabled = false;
                 txtEmail.Enabled = false;
                 txtCode.Enabled = false;
                 txtCountry.Enabled = false;
@@ -111,16 +111,20 @@ namespace Assignment
                 txtStreet.Enabled = false;
                 txtBankAcc.Enabled = false;
                 ddlBank.Enabled = false;
+                lblDisplayCity.Text = ddlCity.SelectedItem.ToString();
                 ddlCity.Visible = false;
                 ddlState.Enabled = false;
-                lblDisplayCity.Text = ddlCity.SelectedItem.ToString();
                 lblDisplayCity.Visible = true;
 
                 SqlConnection con;
                 string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strCon);
                 con.Open();
-                SqlCommand query = new SqlCommand("update Users set UserName='"+txtUsername.Text+, con);
+                SqlCommand query = new SqlCommand("update Users set DisplayName='" + txtDisplayName.Text + "',FirstName='" + txtFName.Text + "',LastName='"
+                + txtLName.Text + "',PhoneNo='" + txtPhone.Text + "',Email='" + txtEmail.Text + "',Country='" + txtCountry.Text + "',State='"
+                + ddlState.SelectedItem.ToString() + "',Street='" + txtStreet.Text + "',City='" + lblDisplayCity.Text + "',Code='"
+                + txtCode.Text + "',Bank='" + ddlBank.SelectedItem.ToString() + "',BankAccount='" + txtBankAcc.Text + "' WHERE UserName=@username", con);
+                query.Parameters.AddWithValue("@username", lblUsername.Text);
                 query.ExecuteNonQuery();
                 con.Close();
             }
@@ -128,78 +132,110 @@ namespace Assignment
 
         protected void ddlState_Load(object sender, EventArgs e)
         {
-            ddlCity.Items.Clear();
-            if (ddlState.SelectedItem.ToString() == "Johor")
+            if (btnEdit.Text == "Confirm")
             {
-                ddlCity.Items.Add("Johor Bahru");
-                ddlCity.Items.Add("Iskandar Puteri");
-                ddlCity.Items.Add("Pasir Gudang");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Kedah")
-            {
-                ddlCity.Items.Add("Alor Setar");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Kelantan")
-            {
-                ddlCity.Items.Add("Kota Bahru");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Malacca")
-            {
-                ddlCity.Items.Add("Malacca City");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Negeri Sembilan")
-            {
-                ddlCity.Items.Add("Seremban");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Pahang")
-            {
-                ddlCity.Items.Add("Kuantan");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Penang")
-            {
-                ddlCity.Items.Add("George Town");
-                ddlCity.Items.Add("Seberang Perai");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Perak")
-            {
-                ddlCity.Items.Add("Ipoh");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Perlis")
-            {
-                ddlCity.Items.Add("Kuala Perlis");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Sabah")
-            {
-                ddlCity.Items.Add("Kota Kinabalu");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Sarawak")
-            {
-                ddlCity.Items.Add("Kuching");
-                ddlCity.Items.Add("Miri");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Selangor")
-            {
-                ddlCity.Items.Add("Shah Alam");
-                ddlCity.Items.Add("Petaling Jaya");
-                ddlCity.Items.Add("Subang Jaya");
-            }
-            else if (ddlState.SelectedItem.ToString() == "Terengganu")
-            {
-                ddlCity.Items.Add("Kuala Terengganu");
-            }
-            else if (ddlState.SelectedItem.ToString() == "WP.Kuala Lumpur")
-            {
-                ddlCity.Items.Add("Kuala Lumpur");
-            }
-            else if (ddlState.SelectedItem.ToString() == "WP.Labuan")
-            {
-                ddlCity.Items.Add("Labuan");
+
             }
             else
             {
-                ddlCity.Items.Add("Putrajaya");
+                ddlCity.Items.Clear();
+                if (ddlState.SelectedItem.ToString() == "Johor")
+                {
+                    ddlCity.Items.Add("Johor Bahru");
+                    ddlCity.Items.Add("Iskandar Puteri");
+                    ddlCity.Items.Add("Pasir Gudang");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Kedah")
+                {
+                    ddlCity.Items.Add("Alor Setar");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Kelantan")
+                {
+                    ddlCity.Items.Add("Kota Bahru");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Malacca")
+                {
+                    ddlCity.Items.Add("Malacca City");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Negeri Sembilan")
+                {
+                    ddlCity.Items.Add("Seremban");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Pahang")
+                {
+                    ddlCity.Items.Add("Kuantan");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Penang")
+                {
+                    ddlCity.Items.Add("George Town");
+                    ddlCity.Items.Add("Seberang Perai");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Perak")
+                {
+                    ddlCity.Items.Add("Ipoh");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Perlis")
+                {
+                    ddlCity.Items.Add("Kuala Perlis");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Sabah")
+                {
+                    ddlCity.Items.Add("Kota Kinabalu");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Sarawak")
+                {
+                    ddlCity.Items.Add("Kuching");
+                    ddlCity.Items.Add("Miri");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Selangor")
+                {
+                    ddlCity.Items.Add("Shah Alam");
+                    ddlCity.Items.Add("Petaling Jaya");
+                    ddlCity.Items.Add("Subang Jaya");
+                }
+                else if (ddlState.SelectedItem.ToString() == "Terengganu")
+                {
+                    ddlCity.Items.Add("Kuala Terengganu");
+                }
+                else if (ddlState.SelectedItem.ToString() == "WP.Kuala Lumpur")
+                {
+                    ddlCity.Items.Add("Kuala Lumpur");
+                }
+                else if (ddlState.SelectedItem.ToString() == "WP.Labuan")
+                {
+                    ddlCity.Items.Add("Labuan");
+                }
+                else
+                {
+                    ddlCity.Items.Add("Putrajaya");
+                }
             }
-            ddlCity.Text = lblDisplayCity.Text;
         }
+
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/ChangePassword.aspx") + "';", true);
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                string str = FileUpload1.FileName;
+                FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Picture/" + str));
+                string Image = "~/Picture/" + str.ToString();
+                SqlConnection con;
+                string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strCon);
+                SqlCommand cmd = new SqlCommand("update Users set Picture=@Image WHERE UserName = @username", con);
+                cmd.Parameters.AddWithValue("@Image", Image);
+                cmd.Parameters.AddWithValue("@username", lblUsername.Text);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
     }
 }

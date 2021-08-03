@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.SessionState;
 
 namespace Assignment
 {
@@ -13,7 +14,10 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session.Abandon();
+            }
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)
@@ -27,7 +31,7 @@ namespace Assignment
             SqlDataReader reader = query.ExecuteReader();
             if (reader.Read())
             {
-                if(reader.GetValue(2).ToString() == txtPassword.Text)
+                if (reader.GetValue(2).ToString() == txtPassword.Text)
                 {
                     Session["Username"] = txtUserName.Text;
                     Response.Redirect("Artist.aspx");

@@ -32,7 +32,10 @@
             </tr>
             <tr>
             <td class="auto-style1"><p class="paragragh">Username: <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-                  <br/>Password: <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                  <br/>Password: <asp:TextBox ID="txtPassword" type="password" runat="server"></asp:TextBox>
+            </p>
+                <p class="paragragh">
+                    <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password" onclick="myFunction()" />
             </p>
                 <p class="paragragh">
                     <asp:Label ID="lblDisplayMsg" runat="server"></asp:Label>
@@ -46,5 +49,6 @@
                 &nbsp;<asp:Button ID="btnRegister" runat="server" Text="Sing Up" style="height: 29px" PostBackUrl="~/Registration.aspx" />
             </div>
     </form>
+<script src="JavaScripts/function.js"></script>
 </body>
 </html>

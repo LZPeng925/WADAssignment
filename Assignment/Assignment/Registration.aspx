@@ -113,10 +113,10 @@
                 <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style22">
-            <asp:Label ID="lblDisplayName" runat="server"></asp:Label>
+            <asp:Label ID="lblDisplayName" runat="server">Name Display:</asp:Label>
             </td>
             <td class="auto-style18">
-                <asp:TextBox type="password" ID="txtDisplayName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDisplayName" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr><td class="auto-style10">
@@ -194,7 +194,7 @@
             <asp:Label ID="lblCity" runat="server">City</asp:Label>
             </td>
             <td class="auto-style11">
-                <asp:DropDownList ID="ddlCity" runat="server" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlCity" runat="server" >
                 </asp:DropDownList>
             </td>
             <td class="auto-style23">

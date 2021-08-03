@@ -22,6 +22,15 @@ namespace Assignment {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// lblUsernameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUsernameText;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,31 @@ namespace Assignment {
         protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// Image1 control.
+        /// imgPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imgPicture;
+        
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
         
         /// <summary>
         /// txtFName control.
@@ -58,13 +85,13 @@ namespace Assignment {
         protected global::System.Web.UI.WebControls.TextBox txtLName;
         
         /// <summary>
-        /// txtUsername control.
+        /// txtDisplayName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtDisplayName;
         
         /// <summary>
         /// txtPhone control.
@@ -184,6 +211,15 @@ namespace Assignment {
         protected global::System.Web.UI.WebControls.TextBox txtCode;
         
         /// <summary>
+        /// lblBank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBank;
+        
+        /// <summary>
         /// ddlBank control.
         /// </summary>
         /// <remarks>
@@ -193,6 +229,15 @@ namespace Assignment {
         protected global::System.Web.UI.WebControls.DropDownList ddlBank;
         
         /// <summary>
+        /// lblBankAcc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBankAcc;
+        
+        /// <summary>
         /// txtBankAcc control.
         /// </summary>
         /// <remarks>
@@ -200,6 +245,15 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBankAcc;
+        
+        /// <summary>
+        /// btnChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePassword;
         
         /// <summary>
         /// btnEdit control.
