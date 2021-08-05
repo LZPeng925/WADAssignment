@@ -74,13 +74,17 @@
     <Content Include="Artist.aspx" />
     <Content Include="ArtManageDisplay.aspx" />
     <Content Include="ArtworkManage.aspx" />
+    <Content Include="ButtonTest.aspx" />
+    <Content Include="ConfirmArtworkDetail.aspx" />
     <Content Include="CountingEntries.asax" />
     <Content Include="JavaScripts\function.js" />
+    <Content Include="PaymentPage.aspx" />
     <Content Include="Picture\Logo.jfif" />
     <Content Include="PreHomePage.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="StyleSheets\Style.css" />
     <Content Include="Web.config" />
+    <Content Include="WishListPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Artist.aspx.cs">
@@ -104,8 +108,29 @@
     <Compile Include="ArtworkManage.aspx.designer.cs">
       <DependentUpon>ArtworkManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ButtonTest.aspx.cs">
+      <DependentUpon>ButtonTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ButtonTest.aspx.designer.cs">
+      <DependentUpon>ButtonTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmArtworkDetail.aspx.cs">
+      <DependentUpon>ConfirmArtworkDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmArtworkDetail.aspx.designer.cs">
+      <DependentUpon>ConfirmArtworkDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CountingEntries.asax.cs">
       <DependentUpon>CountingEntries.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreHomePage.aspx.cs">
       <DependentUpon>PreHomePage.aspx</DependentUpon>
@@ -121,6 +146,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WishListPage.aspx.cs">
+      <DependentUpon>WishListPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WishListPage.aspx.designer.cs">
+      <DependentUpon>WishListPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
