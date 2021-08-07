@@ -72,6 +72,8 @@
       <DependentUpon>ArtworkGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Artist.aspx" />
+    <Content Include="ManageDisplay.aspx" />
+    <Content Include="Manage.aspx" />
     <Content Include="CountingEntries.asax" />
     <Content Include="JavaScripts\function.js" />
     <Content Include="Picture\Logo.jfif" />
@@ -87,6 +89,20 @@
     </Compile>
     <Compile Include="Artist.aspx.designer.cs">
       <DependentUpon>Artist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageDisplay.aspx.cs">
+      <DependentUpon>ManageDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageDisplay.aspx.designer.cs">
+      <DependentUpon>ManageDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CountingEntries.asax.cs">
       <DependentUpon>CountingEntries.asax</DependentUpon>
@@ -115,6 +131,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ArtPic\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

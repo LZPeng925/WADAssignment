@@ -97,7 +97,7 @@
             <asp:Label ID="Label1" runat="server" Text="First Name: "></asp:Label>
             </td>
             <td class="auto-style20">
-                <asp:TextBox ID="txtFName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtFName" runat="server" OnTextChanged="txtFName_TextChanged"></asp:TextBox>
             </td>
             <td class="auto-style21">
             <asp:Label ID="Label2" runat="server" Text="Last Name: "></asp:Label>

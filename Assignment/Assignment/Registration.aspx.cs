@@ -138,5 +138,10 @@ namespace Assignment
                 txtBankAcc.Visible = false;
             }
         }
+
+        protected void txtFName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

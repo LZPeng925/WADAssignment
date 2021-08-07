@@ -64,7 +64,7 @@
                          <asp:Label ID="Label1" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
                    </td>
                   <td class="auto-style15">
-                         <asp:Label ID="lblManageID" runat="server"></asp:Label>
+                         <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
                </td>
         </tr>
             <tr>
@@ -196,7 +196,7 @@
              &nbsp;<asp:Button ID="btnBack" runat="server" Text="Back" Height="33px" Width="87px" BackColor="#006666" Font-Bold="True" ForeColor="White" />
 
         &nbsp;&nbsp;&nbsp;
-             <asp:Button ID="btnSubmit" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#006666" Font-Bold="True" ForeColor="White"  />
+             <asp:Button ID="btnSubmit" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#006666" Font-Bold="True" ForeColor="White" OnClick="btnSubmit_Click"  />
 
         </div>
 

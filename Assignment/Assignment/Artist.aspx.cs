@@ -120,7 +120,7 @@ namespace Assignment
                 string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strCon);
                 con.Open();
-                SqlCommand query = new SqlCommand("update Users set UserName='"+txtUsername.Text+, con);
+                SqlCommand query = new SqlCommand("update Users set UserName='"+ txtUsername.Text , con);
                 query.ExecuteNonQuery();
                 con.Close();
             }
@@ -200,6 +200,11 @@ namespace Assignment
                 ddlCity.Items.Add("Putrajaya");
             }
             ddlCity.Text = lblDisplayCity.Text;
+        }
+
+        protected void ddlBank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
