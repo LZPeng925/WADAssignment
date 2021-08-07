@@ -32,10 +32,21 @@ namespace Assignment
             SqlConnection con;
             string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strCon);
+            SqlCommand query = new SqlCommand();
             con.Open();
-            SqlCommand query = new SqlCommand("insert into Users values ('"+txtUsername.Text+"','"+txtPassword.Text + "','" + txtFName.Text + "','" + txtLName.Text + "','" + txtPhone.Text 
-            + "','" + txtEmail.Text + "','" + txtCountry.Text + "','" + ddlState.SelectedItem.ToString() + "','" + txtStreet.Text + "','" +  ddlCity.SelectedItem.ToString() 
-            + "','" + txtCode.Text+ddlBank.SelectedItem.ToString() + "','" + ddlBank.SelectedItem.ToString() + "','"+ txtBankAcc.Text + "','" + radUserType.SelectedItem.ToString() + "')", con);
+            if (radUserType.SelectedItem.ToString() == "Artist")
+            {
+                query = new SqlCommand("insert into Users values ('" + txtUsername.Text + "','" + txtPassword.Text + "','" + txtDisplayName.Text + "','" + txtFName.Text + "','" +
+                txtLName.Text + "','" + txtPhone.Text + "','" + txtEmail.Text + "','" + txtCountry.Text + "','" + ddlState.SelectedItem.ToString() + "','" + txtStreet.Text +
+                "','" + ddlCity.SelectedItem.ToString() + "','" + txtCode.Text + "','" + ddlBank.SelectedItem.ToString() + "','" + txtBankAcc.Text + "','" +
+                radUserType.SelectedItem.ToString() + "')", con);
+            }
+            else
+            {
+                query = new SqlCommand("insert into Users values ('" + txtUsername.Text + "','" + txtPassword.Text + "','" + txtDisplayName.Text + "','" + txtFName.Text + "','" +
+                txtLName.Text + "','" + txtPhone.Text + "','" + txtEmail.Text + "','" + txtCountry.Text + "','" + ddlState.SelectedItem.ToString() + "','" + txtStreet.Text + "','"
+                + ddlCity.SelectedItem.ToString() + "','" + txtCode.Text + "','" + "','','" + radUserType.SelectedItem.ToString() + "')", con);
+            }
             query.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('You has successfully registered!!! Returning back to Home Page.'); window.location = '" + Page.ResolveUrl("~/PreHomePage.aspx") + "';", true);
@@ -49,7 +60,7 @@ namespace Assignment
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlCity.Items.Clear();
-            if(ddlState.SelectedItem.ToString() == "Johor")
+            if (ddlState.SelectedItem.ToString() == "Johor")
             {
                 ddlCity.Items.Add("Johor Bahru");
                 ddlCity.Items.Add("Iskandar Puteri");
@@ -59,7 +70,7 @@ namespace Assignment
             {
                 ddlCity.Items.Add("Alor Setar");
             }
-            else if(ddlState.SelectedItem.ToString() == "Kelantan")
+            else if (ddlState.SelectedItem.ToString() == "Kelantan")
             {
                 ddlCity.Items.Add("Kota Bahru");
             }
@@ -123,7 +134,7 @@ namespace Assignment
 
         protected void radUserType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(radUserType.SelectedItem.ToString() == "Artist")
+            if (radUserType.SelectedItem.ToString() == "Artist")
             {
                 lblBank.Visible = true;
                 lblBankAcc.Visible = true;

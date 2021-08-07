@@ -72,15 +72,19 @@
       <DependentUpon>ArtworkGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Artist.aspx" />
-    <Content Include="ManageDisplay.aspx" />
-    <Content Include="Manage.aspx" />
+    <Content Include="ArtManageDisplay.aspx" />
+    <Content Include="ArtworkManage.aspx" />
+    <Content Include="ButtonTest.aspx" />
+    <Content Include="ConfirmArtworkDetail.aspx" />
     <Content Include="CountingEntries.asax" />
     <Content Include="JavaScripts\function.js" />
+    <Content Include="PaymentPage.aspx" />
     <Content Include="Picture\Logo.jfif" />
     <Content Include="PreHomePage.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="StyleSheets\Style.css" />
     <Content Include="Web.config" />
+    <Content Include="WishListPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Artist.aspx.cs">
@@ -90,22 +94,43 @@
     <Compile Include="Artist.aspx.designer.cs">
       <DependentUpon>Artist.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ManageDisplay.aspx.cs">
-      <DependentUpon>ManageDisplay.aspx</DependentUpon>
+    <Compile Include="ArtManageDisplay.aspx.cs">
+      <DependentUpon>ArtManageDisplay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ManageDisplay.aspx.designer.cs">
-      <DependentUpon>ManageDisplay.aspx</DependentUpon>
+    <Compile Include="ArtManageDisplay.aspx.designer.cs">
+      <DependentUpon>ArtManageDisplay.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manage.aspx.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
+    <Compile Include="ArtworkManage.aspx.cs">
+      <DependentUpon>ArtworkManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manage.aspx.designer.cs">
-      <DependentUpon>Manage.aspx</DependentUpon>
+    <Compile Include="ArtworkManage.aspx.designer.cs">
+      <DependentUpon>ArtworkManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonTest.aspx.cs">
+      <DependentUpon>ButtonTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ButtonTest.aspx.designer.cs">
+      <DependentUpon>ButtonTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmArtworkDetail.aspx.cs">
+      <DependentUpon>ConfirmArtworkDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmArtworkDetail.aspx.designer.cs">
+      <DependentUpon>ConfirmArtworkDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="CountingEntries.asax.cs">
       <DependentUpon>CountingEntries.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreHomePage.aspx.cs">
       <DependentUpon>PreHomePage.aspx</DependentUpon>
@@ -122,6 +147,13 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WishListPage.aspx.cs">
+      <DependentUpon>WishListPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WishListPage.aspx.designer.cs">
+      <DependentUpon>WishListPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -131,9 +163,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ArtPic\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
