@@ -86,7 +86,7 @@
                
               
                     <asp:Button ID="btnManageSearch" runat="server" Text="Search" Width="117px" BackColor="#006666" Font-Bold="True" ForeColor="White" Height="36px" />
-               
+               </td>
               
             </tr>
             

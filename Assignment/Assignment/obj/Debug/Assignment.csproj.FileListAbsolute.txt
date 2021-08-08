@@ -166,3 +166,8 @@ C:\Users\YUEN\OneDrive\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\
 C:\Users\YUEN\OneDrive\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.csproj.CopyComplete
 C:\Users\YUEN\OneDrive\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.dll
 C:\Users\YUEN\OneDrive\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.pdb
+C:\Users\USER\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.dll
+C:\Users\USER\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.pdb
+C:\Users\USER\Documents\GitHub\WADAssignment\Assignment\Assignment\obj\Debug\Assignment.csprojAssemblyReference.cache

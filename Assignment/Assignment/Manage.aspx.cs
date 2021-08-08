@@ -18,11 +18,26 @@ namespace Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                GenerateAutoID();
+            }
 
         }
 
-        protected void txtManageName_TextChanged(object sender, EventArgs e)
+       private void GenerateAutoID()
         {
+            string artID = "ART ";
+
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select Count(id) from artwork", con);
+            int i = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            i++;
+            lblManageID.Text = artID + i.ToString();
 
         }
 
@@ -43,8 +58,8 @@ namespace Assignment
                 int length = FileUpload1.PostedFile.ContentLength;
                 byte[] pic = new byte[length];
                 FileUpload1.PostedFile.InputStream.Read(pic, 0, length);
-                SqlCommand cmd = new SqlCommand("insert into artwork" + "(id , Name , artists , paintCate , paintStyle , paintTech , price, image) values (@ArtwordID , @ArtwordName , @Artists , @PaintCate , @PaintStyle , @PaintTech , @Price, @Image)", con);
-                cmd.Parameters.AddWithValue("@ArtwordID", txtID.Text);
+                SqlCommand cmd = new SqlCommand("insert into artwork" + "(id , Name , artists , paintCate , paintStyle , paintTech , price, image, stock) values (@ArtwordID , @ArtwordName , @Artists , @PaintCate , @PaintStyle , @PaintTech , @Price, @Image ,@stock)", con);
+                cmd.Parameters.AddWithValue("@ArtwordID", lblManageID.Text);
                 cmd.Parameters.AddWithValue("@ArtwordName", txtManageName.Text);
                 cmd.Parameters.AddWithValue("@Artists", txtManageArtists.Text);
                 cmd.Parameters.AddWithValue("@PaintCate", ddlManagePaintCatego.SelectedItem.ToString());
@@ -52,23 +67,13 @@ namespace Assignment
                 cmd.Parameters.AddWithValue("@PaintTech", ddlManagePaintTechniques.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@Price", txtManagePrice.Text);
                 cmd.Parameters.AddWithValue("@Image", pic);
+                cmd.Parameters.AddWithValue("@stock", txtManageStock.Text);
                 cmd.ExecuteScalar();
                 con.Close();
+                GenerateAutoID();
                 lblInformation.Text = "Succesfully!";
 
-                //String con = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ArtworkGallery.mdf;Integrated Security=True";
-                //SqlConnection sqlcon = new SqlConnection(con);
-                //FileUpload1.SaveAs(Server.MapPath("~/ArtPic/") + Path.GetFileName(FileUpload1.FileName));
-                //String link = "ArtPic/" + Path.GetFileName(FileUpload1.FileName);
-
-
-                //String query = "Insert into Manage (ArtwordID, ArtwordName, Artists, PaintCate, PaintStyle, PaintTech, Price, Image) values (" + txtID .Text + " ,  '" + txtManageName.Text + "' ,  '" + txtManageArtists.Text + "' , '" + ddlManagePaintCatego.SelectedItem.ToString() + "' , '" + ddlManagePaintingStyle.SelectedItem.ToString() + "' , '" + ddlManagePaintTechniques.SelectedItem.ToString() + "' , '" + txtManagePrice.Text + "' , '" + link + "')";
-                //SqlCommand cmd = new SqlCommand(query, sqlcon);
-                //sqlcon.Open();
-                //cmd.ExecuteNonQuery();
-                //sqlcon.Close();
-
-                //lblInformation.Text = "Succesfully !!!";
+               
 
 
 
@@ -83,6 +88,17 @@ namespace Assignment
 
             }
 
-        
+        protected void btnManageUpload_Click(object sender, EventArgs e)
+        {
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select image from artwork where  ");
+
+
+
+
+        }
     }
 }

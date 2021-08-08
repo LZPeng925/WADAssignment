@@ -16,19 +16,9 @@
         .auto-style5 {
             height: 694px;
         }
-        .auto-style6 {
-            width: 247px;
-        }
         .auto-style7 {
-            height: 17px;
+            height: 40px;
             width: 247px;
-        }
-        .auto-style10 {
-            width: 238px;
-        }
-        .auto-style12 {
-            height: 17px;
-            width: 238px;
         }
         .auto-style13 {
             width: 238px;
@@ -42,13 +32,38 @@
             height: 10px;
             width: 247px;
         }
+        .auto-style17 {
+            width: 238px;
+            height: 40px;
+        }
+        .auto-style18 {
+            width: 238px;
+            height: 41px;
+        }
+        .auto-style19 {
+            height: 41px;
+            width: 247px;
+        }
+        .auto-style24 {
+            height: 41px;
+        }
+        .auto-style25 {
+            height: 40px;
+        }
+        .auto-style26 {
+            width: 238px;
+            height: 39px;
+        }
+        .auto-style27 {
+            height: 39px;
+        }
         </style>
 </head>
 
 
 <body style="height: 760px; margin-top: 27px; width: 731px;">
 
-    <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #008000; right: auto; left: auto">
+    <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto">
         CREATE
         <br />
     </header>
@@ -64,23 +79,23 @@
                          <asp:Label ID="Label1" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
                    </td>
                   <td class="auto-style15">
-                         <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+                         <asp:Label ID="lblManageID" runat="server"></asp:Label>
                </td>
         </tr>
             <tr>
 
-                <td class="auto-style10">
+                <td class="auto-style18" style="background-color: #D2ECF2">
                       <asp:Label ID="Label3" runat="server" Text="Artwork Name"></asp:Label>
 
                 </td>
-                <td class="auto-style6">
+                <td class="auto-style19" style="background-color: #D2ECF2">
 
-                    <asp:TextBox ID="txtManageName" runat="server" OnTextChanged="txtManageName_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
 
                 </td>
             </tr>
             <tr>
-                <td class="auto-style12">
+                <td class="auto-style17">
 
                     <asp:Label ID="Label4" runat="server" Text="Artists"></asp:Label>
 
@@ -92,12 +107,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style10">
+                <td class="auto-style17" style="background-color: #D2ECF2">
 
                     <asp:Label ID="Label5" runat="server" Text="Painting Categories"></asp:Label>
 
                 </td>
-                <td>
+                <td class="auto-style25" style="background-color: #D2ECF2">
 
                     <asp:DropDownList ID="ddlManagePaintCatego" runat="server">
                         <asp:ListItem>Animals</asp:ListItem>
@@ -113,12 +128,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style10">
+                <td class="auto-style26">
 
                     <asp:Label ID="lblPaintingStyle" runat="server" Text="Painting Style"></asp:Label>
 
                 </td>
-                <td>
+                <td class="auto-style27">
 
                     <asp:DropDownList ID="ddlManagePaintingStyle" runat="server">
                         <asp:ListItem>Abstract</asp:ListItem>
@@ -132,12 +147,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style10">
+                <td class="auto-style18" style="background-color: #D2ECF2">
 
                     <asp:Label ID="Label6" runat="server" Text="Painting Techniques"></asp:Label>
 
                 </td>
-                <td>
+                <td class="auto-style24" style="background-color: #D2ECF2">
 
                     <asp:DropDownList ID="ddlManagePaintTechniques" runat="server">
                         <asp:ListItem>Acrylic</asp:ListItem>
@@ -154,14 +169,27 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style10">
+                <td class="auto-style17">
 
                     <asp:Label ID="Label7" runat="server" Text="Price"></asp:Label>
 
                 </td>
-                <td>
+                <td class="auto-style25">
 
                     <asp:TextBox ID="txtManagePrice" runat="server"></asp:TextBox>
+
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="auto-style17" style="background-color: #D2ECF2">
+
+                    <asp:Label ID="Label8" runat="server" Text="Stock"></asp:Label>
+
+                </td>
+                <td class="auto-style25" style="background-color: #D2ECF2">
+
+                    <asp:TextBox ID="txtManageStock" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -180,6 +208,8 @@
                     <br />
                     <br />
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
+                    <br />
+                    <br />
                 </td>
             </tr>
             
@@ -187,16 +217,16 @@
 
         <br />
 &nbsp;&nbsp;
-        <asp:Label ID="lblInformation" runat="server" Font-Bold="True" ForeColor="#006600"></asp:Label>
+        <asp:Label ID="lblInformation" runat="server" Font-Bold="True" ForeColor="#000066"></asp:Label>
 
         <br />
         
         <div >
              <br />
-             &nbsp;<asp:Button ID="btnBack" runat="server" Text="Back" Height="33px" Width="87px" BackColor="#006666" Font-Bold="True" ForeColor="White" />
+             &nbsp;<asp:Button ID="btnBack" runat="server" Text="Back" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" />
 
         &nbsp;&nbsp;&nbsp;
-             <asp:Button ID="btnSubmit" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#006666" Font-Bold="True" ForeColor="White" OnClick="btnSubmit_Click"  />
+             <asp:Button ID="btnSubmit" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnSubmit_Click"  />
 
         </div>
 
