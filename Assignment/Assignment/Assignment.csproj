@@ -74,7 +74,6 @@
     <Content Include="ButtonTest.aspx" />
     <Content Include="ConfirmArtworkDetail.aspx" />
     <Content Include="Display.aspx" />
-    <Content Include="JavaScripts\function.js" />
     <Content Include="Manage.aspx" />
     <Content Include="ManageDisplay.aspx" />
     <Content Include="PaymentHistory.aspx" />
