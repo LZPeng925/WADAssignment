@@ -14,18 +14,23 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string c;
-            c = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
-            SqlConnection con = new SqlConnection(c);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from artwork", con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            GridView1.DataSource = dr;
-            GridView1.DataBind();
-
-
-
+            //string c;
+            //c = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
+            //SqlConnection con = new SqlConnection(c);
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("Select * from artwork", con);
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //GridView1.DataSource = dr;
+            //GridView1.DataBind();
+            //con.Close();
+            if (Session["Role"].ToString() == "Artist")
+            {
+                DataList1.Visible = false;
+            }
+            else
+            {
+                DataList2.Visible = false;
+            }
 
             //if (!this.IsPostBack)
             //{
@@ -36,7 +41,7 @@ namespace Assignment
             //        {
             //            DataTable dt = new DataTable();
             //            sda.Fill(dt);
-                        
+
             //        }
             //    }
             //}
