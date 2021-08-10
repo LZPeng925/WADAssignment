@@ -47,6 +47,20 @@ namespace Assignment
             //}
         }
 
+        protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if(e.CommandName == "AddToCart")
+            {
+                Response.Redirect("Artist.aspx");
+                //addtocart
+            }
+            else
+            {
+                Response.Redirect("WishListPage.aspx");
+                //wishlist
+            }
+        }
+
         //protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         //{
         //    if (e.Row.RowType == DataControlRowType.DataRow)
@@ -56,6 +70,6 @@ namespace Assignment
         //        (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
         //    }
         //}
-    
+
     }
 }

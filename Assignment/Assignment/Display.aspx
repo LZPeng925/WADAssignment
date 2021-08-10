@@ -15,7 +15,7 @@
     </header>
         <div>
             <br />
-            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="antiquewhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3">
+            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand">
                 <ItemTemplate>
                     ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -43,6 +43,9 @@
                     <br />
                     stock:
                     <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' />
+                    <br />
+                          <asp:ImageButton ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
+                          &nbsp;<asp:ImageButton ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
                     <br />
                     <br />
                 </ItemTemplate>
