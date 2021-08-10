@@ -27,9 +27,17 @@ namespace Assignment
             }
             else
             {
-                hyperlink1.Enabled = true;
-                hyperlink2.Enabled = true;
-                lblRole.Text = "as "+Session["Role"].ToString();
+                if (Session["Role"].ToString() == "Customer")
+                {
+                    hyperlink1.Enabled = true;
+                    hyperlink2.Enabled = true;
+                }
+                else
+                {
+                    hyperlink1.Enabled = false;
+                    hyperlink2.Enabled = false;
+                }
+                lblRole.Text = "as " + Session["Role"].ToString();
                 lblName.Text = Session["Username"].ToString();
                 lblGuest.Visible = false;
                 btnLogout.Text = "LogOut";
@@ -86,7 +94,14 @@ namespace Assignment
         {
             if (Session["Username"] != null)
             {
-                Response.Redirect("WishListPage.aspx");
+                if (Session["Role"].ToString() == "Customer")
+                {
+                    Response.Redirect("WishListPage.aspx");
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Sorry, This page is for Customer.'); window.location = '" + Page.ResolveUrl("Display.aspx") + "';", true);
+                }
             }
             else
             {
