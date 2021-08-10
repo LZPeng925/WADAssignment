@@ -6,6 +6,10 @@
             height:50px;
             width:auto;
         }
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
+        }
         </style>
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  

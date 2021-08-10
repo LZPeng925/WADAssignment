@@ -1,9 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Project.master" CodeBehind="PreHomePage.aspx.cs" Inherits="Assignment.PreHomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"> 
+      <style type="text/css">
+        .headercolor {
+            font-style: italic;
+            font-size: x-large;
+            text-align: center;
+            background-color: dodgerblue;
+            color: black;
+        }
+        </style>
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
-    <header>
+    <header class="headercolor">
         RSD ARTWORK GALLERY
         <br />
         <asp:Image ID="Image2" runat="server" imageurl="Picture/Logo.jfif" BorderStyle="Solid" Height="200px" Width="329px"/>

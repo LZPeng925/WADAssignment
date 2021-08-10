@@ -51,6 +51,10 @@
         .auto-style27 {
             height: 39px;
         }
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
+        }
         </style>
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
@@ -65,7 +69,7 @@
         <br />
         <br />
         
-        <table class="auto-style1" style="table-layout: fixed;">
+        <table class="auto-style1 tablestyle" style="table-layout: fixed;">
             <tr>
                  <td class="auto-style14">
                          <asp:Label ID="Label2" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
