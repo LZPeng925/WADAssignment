@@ -63,7 +63,14 @@ namespace Assignment
         {
             if (Session["Username"] != null)
             {
-                Response.Redirect("Manage.aspx");
+                if (Session["Role"].ToString() == "Artist")
+                {
+                    Response.Redirect("Manage.aspx");
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Sorry, This page is for Artist.'); window.location = '" + Page.ResolveUrl("Display.aspx") + "';", true);
+                }
             }
             else
             {

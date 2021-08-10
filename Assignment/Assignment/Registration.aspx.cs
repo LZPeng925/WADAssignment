@@ -48,8 +48,8 @@ namespace Assignment
             SqlCommand query = new SqlCommand();
             con.Open();
             query = new SqlCommand("insert into Users (UserName, Password, DisplayName, FirstName, LastName, PhoneNo, Email, Country, State," +
-                    " Street, City, Code, Bank, BankAccount, UserType, Picture) Value (@username, @password, @displayname, @firstname, @lastname," +
-                    " @phoneno, @email, @country, @state, @street, @city, @code, @bank, @bankaccount, @usertype, @picture)", con);
+                    " Street, City, Code, Bank, BankAccount, UserType) Values (@username, @password, @displayname, @firstname, @lastname," +
+                    " @phoneno, @email, @country, @state, @street, @city, @code, @bank, @bankaccount, @usertype)", con);
             query.Parameters.AddWithValue("@username", txtUsername.Text);
             query.Parameters.AddWithValue("@password", txtPassword.Text);
             query.Parameters.AddWithValue("@displayname", txtDisplayName.Text);
@@ -73,7 +73,6 @@ namespace Assignment
                 query.Parameters.AddWithValue("@bankaccount", "");
             }
             query.Parameters.AddWithValue("@usertype", radUserType.SelectedItem.ToString());
-            query.Parameters.AddWithValue("@picture", "");
             query.ExecuteNonQuery();
             con.Close();
             ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('You has successfully registered!!! Returning back to Home Page.'); window.location = '" + Page.ResolveUrl("~/PreHomePage.aspx") + "';", true);
