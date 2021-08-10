@@ -18,6 +18,8 @@ namespace Assignment
             lblGuest.Visible = true;
             if (Session["Username"] == null)
             {
+                hyperlink1.Enabled = false;
+                hyperlink2.Enabled = false;
                 lblRole.Visible = false;
                 lblName.Visible = false;
                 lblGuest.Text = "Guest";
@@ -25,6 +27,8 @@ namespace Assignment
             }
             else
             {
+                hyperlink1.Enabled = true;
+                hyperlink2.Enabled = true;
                 lblRole.Text = "as "+Session["Role"].ToString();
                 lblName.Text = Session["Username"].ToString();
                 lblGuest.Visible = false;
