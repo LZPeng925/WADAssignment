@@ -92,8 +92,8 @@
                     <div class="dropdown">
                       <asp:Button ID="btnProfile" runat="server" Text="Profile" CssClass="btn-primary focus" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnProfile_Click" />
                       <div class="dropdown-content">
-                    <a href="WishListPage.apsx">Wish List</a>
-                    <a href="PaymentHistory.aspx">Payment History</a>
+                    <asp:HyperLink ID="hyperlink1" runat="server" navigateUrl="~/WishListPage.aspx">Wish List</asp:HyperLink>
+                    <asp:HyperLink ID="hyperlink2" runat="server" navigateUrl="~/PaymentHistory.aspx">Payment History</asp:HyperLink>
                      </div>
                   </div>
               </div>
