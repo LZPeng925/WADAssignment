@@ -217,12 +217,8 @@
 
         <br />
         
-        <div >
-             <br />
-             &nbsp;<asp:Button ID="Button1" runat="server" Text="Back" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" />
-
-        &nbsp;&nbsp;&nbsp;
+        <div class="center">
+            <br/>
              <asp:Button ID="Button2" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnSubmit_Click"  />
-
         </div>
 </asp:Content>  

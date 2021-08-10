@@ -22,7 +22,8 @@ namespace Assignment
             {
                 GenerateAutoID();
             }
-
+            txtManageArtists.Text = Session["Username"].ToString();
+            txtManageArtists.Enabled = false;
         }
 
        private void GenerateAutoID()
@@ -72,21 +73,8 @@ namespace Assignment
                 con.Close();
                 GenerateAutoID();
                 lblInformation.Text = "Succesfully!";
-
-               
-
-
-
-
-
-
-
-
-
             }
-
-
-            }
+        }
 
         protected void btnManageUpload_Click(object sender, EventArgs e)
         {
@@ -95,10 +83,6 @@ namespace Assignment
             con = new SqlConnection(strCon);
             con.Open();
             SqlCommand cmd = new SqlCommand("select image from artwork where  ");
-
-
-
-
         }
     }
 }
