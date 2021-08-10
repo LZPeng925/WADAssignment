@@ -60,7 +60,7 @@ namespace Assignment
             con.Open();
             string query = "SELECT FORMAT(SUM(artwork.price*Cart.quantity), 'N') AS Sales FROM [artwork] INNER JOIN [Cart] ON artwork.id = Cart.id WHERE (Cart.UserName = @UserName)";
             SqlCommand comand = new SqlCommand(query, con);
-            comand.Parameters.AddWithValue("@UserName", Session["Username"]);
+            comand.Parameters.AddWithValue("@UserName", Session["Username"].ToString());
             dataReader = comand.ExecuteReader();
 
             while (dataReader.Read())

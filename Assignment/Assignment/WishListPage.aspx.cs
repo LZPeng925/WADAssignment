@@ -67,7 +67,7 @@ namespace Assignment
                     Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
                     Label idOFWish = e.Item.FindControl("WishListIDLabel") as Label;
                     comand2.Parameters.AddWithValue("@maxCartID", maxCartID);
-                    comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
+                    comand2.Parameters.AddWithValue("@UserName", Session["Username"].ToString());
                     comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
                     comand2.Parameters.AddWithValue("@Quantity", 1);
                     comand2.ExecuteNonQuery();
