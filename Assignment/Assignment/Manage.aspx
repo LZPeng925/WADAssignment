@@ -212,9 +212,9 @@
         </table>
 
         <br />
-&nbsp;&nbsp;
+        <div class="center">
         <asp:Label ID="lblInformation" runat="server" Font-Bold="True" ForeColor="#000066"></asp:Label>
-
+        </div>
         <br />
         
         <div class="center">

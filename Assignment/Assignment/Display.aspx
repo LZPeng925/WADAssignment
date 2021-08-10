@@ -15,7 +15,7 @@
     </header>
         <div>
             <br />
-            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand">
+            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand" RepeatColumns="5">
                 <ItemTemplate>
                     ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
