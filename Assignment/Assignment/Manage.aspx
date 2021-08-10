@@ -1,6 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Project.Master" CodeBehind="Manage.aspx.cs" Inherits="Assignment.ArtworkManage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
+     <script type="text/javascript">
+        function previewFile() {
+            var preview = document.querySelector('#<%=Image2.ClientID %>');
+            var file = document.querySelector('#<%=FileUpload1.ClientID %>').files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
     <style type="text/css">
         .auto-style1 {
             height: 453px;
@@ -200,7 +215,7 @@
 
                     Please Upload The Photo<br />
                     <br />
-                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" />
+                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()"/>
                     <br />
                     <br />
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
