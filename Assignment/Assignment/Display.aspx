@@ -3,36 +3,36 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
-     <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto">
+     <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
         
          All Gallery<br />
     </header>
         <div>
             <br />
-            <asp:DataList ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Vertical" BackColor="White" BorderColor="#999999" BorderWidth="1px" CellPadding="3">
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Vertical" BackColor="antiquewhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3">
                 <ItemTemplate>
-                    id:
+                    ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
                     <br />
-                    name:
+                    Name:
                     <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
                     <br />
-                    artists:
+                    Artists:
                     <asp:Label ID="artistsLabel" runat="server" Text='<%# Eval("artists") %>' />
                     <br />
-                    paintCate:
+                    Painting Categories:
                     <asp:Label ID="paintCateLabel" runat="server" Text='<%# Eval("paintCate") %>' />
                     <br />
-                    paintStyle:
+                    Painting Style:
                     <asp:Label ID="paintStyleLabel" runat="server" Text='<%# Eval("paintStyle") %>' />
                     <br />
-                    paintTech:
+                    Painting Technique:
                     <asp:Label ID="paintTechLabel" runat="server" Text='<%# Eval("paintTech") %>' />
                     <br />
-                    price:
+                    Price:
                     <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
                     <br />
-                    image:
+                    Image:
                     <asp:Image ID="Image2" runat="server" width ="300px" Height="300px" ImageUrl='<%#"data:image/png;base64, "+Convert.ToBase64String((byte [])Eval ("image")) %>'/>
                     <br />
                     stock:
@@ -47,30 +47,30 @@
                     <asp:SessionParameter Name="artists" SessionField="Username" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:DataList ID="DataList2" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Vertical" RepeatDirection="Horizontal" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+            <asp:DataList ID="DataList2" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Vertical" RepeatDirection="Horizontal" BackColor="AntiqueWhite" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3">
                 <ItemTemplate>
-                    id:
+                    ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
                     <br />
-                    name:
+                    Name:
                     <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
                     <br />
-                    artists:
+                    Artists:
                     <asp:Label ID="artistsLabel" runat="server" Text='<%# Eval("artists") %>' />
                     <br />
-                    paintCate:
+                    Painting Categories:
                     <asp:Label ID="paintCateLabel" runat="server" Text='<%# Eval("paintCate") %>' />
                     <br />
-                    paintStyle:
+                    Painting Style:
                     <asp:Label ID="paintStyleLabel" runat="server" Text='<%# Eval("paintStyle") %>' />
                     <br />
-                    paintTech:
+                    Painting Technique:
                     <asp:Label ID="paintTechLabel" runat="server" Text='<%# Eval("paintTech") %>' />
                     <br />
-                    price:
+                    Price:
                     <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
                     <br />
-                    image:
+                    Image:
                     <asp:Image ID="Image3" runat="server" width ="300px" Height="300px" ImageUrl='<%#"data:image/png;base64, "+Convert.ToBase64String((byte [])Eval ("image")) %>'/>
                     <br />
                     stock:

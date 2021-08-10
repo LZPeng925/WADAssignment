@@ -8,10 +8,8 @@
             margin-left: 29px;
             margin-right: 0px;
             margin-top: 0px;
-        }
-        .auto-style5 {
-            height: 694px;
-        }
+        position: relative;
+    }
         .auto-style7 {
             height: 40px;
             width: 247px;
@@ -56,8 +54,9 @@
         </style>
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
-     <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto">
-        CREATE
+     <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
+         Upload
+         Gallery
         <br />
     </header>
 
@@ -66,7 +65,7 @@
         <br />
         <br />
         
-        <table class="auto-style1">
+        <table class="auto-style1" style="table-layout: fixed;">
             <tr>
                  <td class="auto-style14">
                          <asp:Label ID="Label2" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
