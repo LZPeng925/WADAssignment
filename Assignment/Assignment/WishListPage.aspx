@@ -17,44 +17,46 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td style="text-align:center">UserID:
-                        <asp:Label ID="lblUserID" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="WishListID" DataSourceID="SqlDataSource1" Enabled="False" ForeColor="#333333" GridLines="None" Height="65px" Width="777px">
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <Columns>
-                                <asp:BoundField DataField="WishListID" HeaderText="WishListID" SortExpression="WishListID" ReadOnly="True" />
-                                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                                <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
-                                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
-                            </Columns>
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                        </asp:GridView>
+                        <asp:DataList ID="DataList1" runat="server" DataKeyField="WishListID" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" Width="100%" GridLines="Both">
+                            <ItemTemplate>
+                                Wish List ID:
+                                <asp:Label ID="WishListIDLabel" runat="server" Text='<%# Eval("WishListID") %>' />
+                                <br />
+                                Artwork ID:
+                                <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
+                                <br />
+                                Artwork Name:
+                                <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
+                                <br />
+                                Name of the Artists:
+                                <asp:Label ID="artistsLabel" runat="server" Text='<%# Eval("artists") %>' />
+                                <br />
+                                Artwork Price:
+                                <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
+                                <br />
+                                Image:<br />&nbsp;
+                                <asp:Image ID="Image2" runat="server" Height="300px" ImageUrl='<%# "data:image/png;base64, "+Convert.ToBase64String((byte [])Eval ("image")) %>' Width="300px" />
+<br />
+                                Stock:
+                                <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' />
+                                <br />
+                                &nbsp;<asp:ImageButton ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
+                                <asp:ImageButton ID="DeleteButton" runat="server" CommandName="DeleteWish" Height="40px" ImageUrl="https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png" Width="45px" />
+                                <br />
+                                <br />
+                                <br />
+                            </ItemTemplate>
+                        </asp:DataList>
                     </td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
-                    <td style="text-align:center">ID :<asp:DropDownList ID="ddlSelectInventory" runat="server" DataSourceID="SqlDataSource1" DataTextField="WishListID" DataValueField="WishListID">
-                        </asp:DropDownList>
+                    <td style="text-align:center">
                         <br />
-                        <asp:Button ID="btnPay" runat="server" PostBackUrl="~/ConfirmArtworkDetail.aspx" Text="Pay" Width="230px" OnClick="btnPay_Click" />
-                        &nbsp;
-                        <asp:Button ID="btnDeleteWish" runat="server" Text="Delete from Wish List" Width="230px" OnClick="btnDeleteWish_Click" />
                     &nbsp;
-                        <asp:Button ID="Button1" runat="server" PostBackUrl="~/ButtonTest.aspx" Text="Back" Width="230px" />
+                        <asp:Button ID="Button1" runat="server" PostBackUrl="~/Display.aspx" Text="Back" Width="230px" />
                     </td>
                     <td>
                         <br />
@@ -65,9 +67,9 @@
                 </tr>
             </table>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT WishList.WishListID, WishList.id, artwork.name, artwork.price FROM artwork INNER JOIN WishList ON artwork.id = WishList.id WHERE (WishList.UserID = @userID)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT WishList.WishListID, WishList.id, artwork.name, artwork.artists, artwork.price, artwork.image, artwork.stock FROM WishList INNER JOIN artwork ON WishList.id = artwork.id WHERE (WishList.UserName = @userName)">
             <SelectParameters>
-                <asp:ControlParameter ControlID="lblUserID" Name="userID" PropertyName="Text" />
+                <asp:SessionParameter Name="userName" SessionField="Username" />
             </SelectParameters>
             </asp:SqlDataSource>
         </div>

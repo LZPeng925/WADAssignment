@@ -51,12 +51,72 @@ namespace Assignment
         {
             if(e.CommandName == "AddToCart")
             {
-                Response.Redirect("Artist.aspx");
+                SqlConnection con;
+                int maxCartID;
+                string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strCon);
+
+                con.Open();
+                string query1 = "SELECT MAX(cartID) AS MaximumID FROM [dbo].[Cart]";
+                string query2 = "INSERT INTO [dbo].[Cart](cartID, UserName, id, quantity) VALUES (@maxCartID, @UserName, @id, @Quantity)";
+                SqlCommand comand = new SqlCommand(query1, con);
+                SqlCommand comand2 = new SqlCommand(query2, con);
+                comand.ExecuteNonQuery();
+                //maxCartID = 1;
+                maxCartID = (int)comand.ExecuteScalar();
+                maxCartID += 1;
+                try
+                {
+                    Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
+                    comand2.Parameters.AddWithValue("@maxCartID", maxCartID);
+                    comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
+                    comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
+                    comand2.Parameters.AddWithValue("@Quantity", 1);
+                    comand2.ExecuteNonQuery();
+                    Response.Write("<script>alert('Add Successfully');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('There are something have problem');</script>");
+                }
+
+                con.Close();
+                //Response.Redirect("Artist.aspx");
                 //addtocart
             }
             else
             {
-                Response.Redirect("WishListPage.aspx");
+                SqlConnection con;
+                int maxWishID;
+                string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                con = new SqlConnection(strCon);
+
+                con.Open();
+                string query1 = "SELECT MAX(WishListId) AS MaximumID FROM [dbo].[WishList]";
+                string query2 = "INSERT INTO [dbo].[WishList](WishListId, UserName, id) VALUES (@maxWishID, @UserName, @id)";
+                SqlCommand comand = new SqlCommand(query1, con);
+                SqlCommand comand2 = new SqlCommand(query2, con);
+                comand.ExecuteNonQuery();
+                //maxWishID = 1;
+                maxWishID = (int)comand.ExecuteScalar();
+                maxWishID += 1;
+
+                try
+                {
+                    Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
+                    comand2.Parameters.AddWithValue("@maxWishID", maxWishID);
+                    comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
+                    comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
+                    comand2.ExecuteNonQuery();
+                    Response.Write("<script>alert('Add Successfully');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('There are something have problem');</script>");
+                }
+
+                con.Close();
+                //Response.Redirect("WishListPage.aspx");
                 //wishlist
             }
         }
