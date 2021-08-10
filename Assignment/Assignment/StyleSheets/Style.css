@@ -2,7 +2,7 @@
     font-style: italic;
     font-size: x-large;
     text-align: center;
-    background-color: cyan;
+    background-color: dodgerblue;
     color: black;
 }
 
@@ -22,4 +22,17 @@ image {
 
 .rightside {
     text-align: right;
+}
+
+.navcolor {
+    background-color: cyan;
+}
+
+.tablestyle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.division {
+    padding: 4px;
 }
