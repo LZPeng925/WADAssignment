@@ -22,7 +22,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style6" style="text-align:center">
+                    <td>
                         <asp:DataList ID="DataList1" runat="server" DataKeyField="cartID" class="tablestyle" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" Width="100%">
                             <ItemTemplate>
                                 Artwork ID:
@@ -40,7 +40,6 @@
                                 Total Price for this Artwork:
                                 <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
                                 <br />
-                                <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' Visible="False"></asp:Label>
 <br />
                             </ItemTemplate>
                         </asp:DataList>
@@ -57,6 +56,7 @@
                     <td>
                         <asp:Label ID="lblUserID" runat="server"></asp:Label>
                         <br />
+                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                         <br />
                         <asp:TextBox ID="TextBox1" runat="server" Width="300px"></asp:TextBox>
                     </td>

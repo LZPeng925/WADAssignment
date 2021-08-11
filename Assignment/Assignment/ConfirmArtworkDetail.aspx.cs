@@ -50,42 +50,6 @@ namespace Assignment
             string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strCon);
 
-
-            //int numberStock, numberMax, newNumber, numberMaxNew;
-            //TextBox num = e.Item.FindControl("quantityLabel") as TextBox;
-            //Label num2 = e.Item.FindControl("stockLabel") as Label;
-            //numberMax = int.Parse(num2.Text.ToString());
-            //numberStock = int.Parse(num.Text.ToString());
-
-            //if (numberStock < numberMax)
-            //{
-            //    newNumber = numberStock + 1;
-            //    num.Text = "" + newNumber;
-            //    numberMaxNew = numberMax - 1;
-
-            //    SqlConnection con;
-            //    string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            //    con = new SqlConnection(strCon);
-
-            //    con.Open();
-            //    string query = "UPDATE [Cart] SET quantity = @newQuantity WHERE cartID = @cartid";
-            //    string query2 = "UPDATE [artwork] SET stock = @newStock WHERE id = @id";
-            //    SqlCommand comand = new SqlCommand(query, con);
-            //    SqlCommand comand2 = new SqlCommand(query2, con);
-
-            //    Label idOFCart = e.Item.FindControl("cartIDLabel") as Label;
-            //    Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
-            //    comand.Parameters.AddWithValue("@cartID", idOFCart.Text.ToString());
-            //    comand.Parameters.AddWithValue("@newquantity", newNumber);
-            //    comand.ExecuteNonQuery();
-
-            //    comand2.Parameters.AddWithValue("@newStock", numberMaxNew);
-            //    comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
-            //    comand2.ExecuteNonQuery();
-            //    DataList1.DataBind();
-            //}
-
-
             con.Open();
             string query1 = "SELECT MAX(HistoryID) AS MaximumID FROM [dbo].[History]";
             string query2 = "INSERT INTO [dbo].[History](HistoryID, UserName, dateTime, price, quantity) VALUES (@maxID, @Username, @datetime, @price, @quantity)";
