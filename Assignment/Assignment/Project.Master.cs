@@ -96,7 +96,7 @@ namespace Assignment
             {
                 if (Session["Role"].ToString() == "Customer")
                 {
-                    Response.Redirect("WishListPage.aspx");
+                    Response.Redirect("ViewCart.aspx");
                 }
                 else
                 {

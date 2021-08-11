@@ -46,7 +46,30 @@ namespace Assignment
             }
             else if(e.CommandName == "MinusQty")
             {
+                int numberStock, newNumber;
+                TextBox num = e.Item.FindControl("quantityLabel") as TextBox;
+                
+                numberStock = int.Parse(num.Text.ToString());
 
+                if (numberStock > 1)
+                {
+                    newNumber = numberStock - 1;
+                    num.Text = "" + newNumber;
+                }
+            }
+            else if (e.CommandName == "AddQty")
+            {
+                int numberStock, numberMax, newNumber;
+                TextBox num = e.Item.FindControl("quantityLabel") as TextBox;
+                Label num2 = e.Item.FindControl("stockLabel") as Label;
+                numberMax = int.Parse(num2.Text.ToString());
+                numberStock = int.Parse(num.Text.ToString());
+
+                if (numberStock < numberMax)
+                {
+                    newNumber = numberStock + 1;
+                    num.Text = "" + newNumber;
+                }
             }
         }
 

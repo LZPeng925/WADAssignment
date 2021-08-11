@@ -74,13 +74,13 @@ namespace Assignment
                     comand2.Parameters.AddWithValue("@Quantity", 1);
                     comand2.ExecuteNonQuery();
                     Response.Write("<script>alert('Add Successfully');</script>");
-                }
+            }
                 catch
-                {
-                    Response.Write("<script>alert('There are something have problem');</script>");
-                }
+            {
+                Response.Write("<script>alert('There are something have problem');</script>");
+            }
 
-                con.Close();
+            con.Close();
                 //Response.Redirect("Artist.aspx");
                 //addtocart
             }
