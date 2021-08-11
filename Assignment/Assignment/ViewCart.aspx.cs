@@ -48,7 +48,6 @@ namespace Assignment
             {
                 int numberStock, newNumber;
                 TextBox num = e.Item.FindControl("quantityLabel") as TextBox;
-                
                 numberStock = int.Parse(num.Text.ToString());
 
                 if (numberStock > 1)
@@ -68,6 +67,7 @@ namespace Assignment
                     comand.Parameters.AddWithValue("@cartID", idOFCart.Text.ToString());
                     comand.Parameters.AddWithValue("@newquantity", newNumber);
                     comand.ExecuteNonQuery();
+
                     DataList1.DataBind();
                 }
             }
@@ -96,6 +96,7 @@ namespace Assignment
                     comand.Parameters.AddWithValue("@cartID", idOFCart.Text.ToString());
                     comand.Parameters.AddWithValue("@newquantity", newNumber);
                     comand.ExecuteNonQuery();
+
                     DataList1.DataBind();
                 }
             }

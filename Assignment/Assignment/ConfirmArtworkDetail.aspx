@@ -2,10 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
     <style type="text/css">
-
-
         .auto-style6 {
             height: 24px;
+        }
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
         }
         </style>
 </asp:Content>  
@@ -21,7 +23,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6" style="text-align:center">
-                        <asp:DataList ID="DataList1" runat="server" DataKeyField="cartID" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" Width="100%">
+                        <asp:DataList ID="DataList1" runat="server" DataKeyField="cartID" class="tablestyle" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" Width="100%">
                             <ItemTemplate>
                                 Artwork ID:
                                 <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -38,6 +40,7 @@
                                 Total Price for this Artwork:
                                 <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
                                 <br />
+                                <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' Visible="False"></asp:Label>
 <br />
                             </ItemTemplate>
                         </asp:DataList>
@@ -82,9 +85,10 @@
                 </tr>
                 <tr>
                     <td>
+                        Total
                         Quantity</td>
                     <td>
-                        <asp:TextBox ID="txtNumber" runat="server" Width="120px">1</asp:TextBox>
+                        <asp:TextBox ID="txtNumber" runat="server" Width="120px" Enabled="False"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +98,7 @@
                 </tr>
             </table>
         </div>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Cart.cartID, Cart.id, artwork.name, artwork.price, Cart.quantity, (artwork.price*Cart.quantity) AS total FROM artwork INNER JOIN Cart ON artwork.id = Cart.id WHERE (Cart.UserName = @Username)">
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Cart.cartID, Cart.id, artwork.name, artwork.price, Cart.quantity, artwork.price * Cart.quantity AS total, artwork.stock FROM artwork INNER JOIN Cart ON artwork.id = Cart.id WHERE (Cart.UserName = @Username)">
                             <SelectParameters>
                                 <asp:SessionParameter Name="Username" SessionField="Username" />
                             </SelectParameters>

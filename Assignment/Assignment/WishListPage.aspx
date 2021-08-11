@@ -4,6 +4,11 @@
         <style type="text/css">
         .auto-style1 {
             height: 49px;
+
+        }
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </asp:Content>  
@@ -17,8 +22,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:DataList ID="DataList1" runat="server" DataKeyField="WishListID" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" Width="100%" GridLines="Both">
+                    <td >
+                        <asp:DataList ID="DataList1" runat="server" DataKeyField="WishListID" class="tablestyle" DataSourceID="SqlDataSource1" RepeatColumns="3" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" Width="100%" GridLines="Both">
                             <ItemTemplate>
                                 Wish List ID:
                                 <asp:Label ID="WishListIDLabel" runat="server" Text='<%# Eval("WishListID") %>' />
