@@ -72,7 +72,6 @@
       <DependentUpon>ArtworkGallery.mdf</DependentUpon>
     </Content>
     <Content Include="Artist.aspx" />
-    <Content Include="ButtonTest.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ConfirmArtworkDetail.aspx" />
     <Content Include="Display.aspx" />
@@ -94,13 +93,6 @@
     </Compile>
     <Compile Include="Artist.aspx.designer.cs">
       <DependentUpon>Artist.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ButtonTest.aspx.cs">
-      <DependentUpon>ButtonTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ButtonTest.aspx.designer.cs">
-      <DependentUpon>ButtonTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
