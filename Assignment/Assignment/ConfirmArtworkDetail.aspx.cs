@@ -18,35 +18,25 @@ namespace Assignment
             SqlDataReader dataReader;
             string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             con = new SqlConnection(strCon);
+            
+            string Output = "";
+            string Output2 = "";
+            lblUserID.Text = "" + Session["Username"];
 
-            if (PreviousPage != null && PreviousPage.IsCrossPagePostBack)
+            con.Open();
+            string query = "SELECT FORMAT(SUM(artwork.price*Cart.quantity), 'N') AS Sales, FORMAT(SUM(Cart.quantity), 'N0') AS Quantity FROM [artwork] INNER JOIN [Cart] ON artwork.id = Cart.id WHERE (Cart.UserID = @UserID)";
+            SqlCommand comand = new SqlCommand(query, con);
+            comand.Parameters.AddWithValue("@UserID", lblUserID.Text);
+            dataReader = comand.ExecuteReader();
+            while (dataReader.Read())
             {
-                String Output = "";
-                String Output2 = "";
-                String quantity = "";
-                DropDownList txtName = (DropDownList)PreviousPage.FindControl("ddlInventoryID");
-                lblArtworkID.Text = txtName.Text;
-                Label lblID = (Label)PreviousPage.FindControl("lblUserID");
-                lblUserID.Text = "" + lblID.Text;
-
-                con.Open();
-                string query = "SELECT name, price, stock FROM [artwork] WHERE id = @InventoryID";
-                SqlCommand comand = new SqlCommand(query, con);
-                comand.Parameters.AddWithValue("@InventoryID", lblArtworkID.Text);
-                dataReader = comand.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output += dataReader.GetValue(0);
-                    Output2 += dataReader.GetValue(1);
-                    quantity += dataReader.GetValue(2);
-                }
-                dataReader.Close();
-
-                lblArtworkName.Text = Output;
-                lblArtworkPrice.Text = String.Format("{0:0.##}", Output2);
-                txtAmount.Text = String.Format("{0:0.##}", Output2);
-                lblArtistsName.Text = quantity;
+                Output += dataReader.GetValue(0);
+                Output2 += dataReader.GetValue(1);
             }
+
+            dataReader.Close();
+            txtAmount.Text = String.Format("{0:0.##}", Output);
+            txtNumber.Text = String.Format("{0:0.##}", Output2);
 
             con.Close();
         }
@@ -62,19 +52,18 @@ namespace Assignment
 
             con.Open();
             string query1 = "SELECT MAX(HistoryID) AS MaximumID FROM [dbo].[History]";
-            string query2 = "INSERT INTO [dbo].[History](HistoryID, UserID, artworkID, dateTime, price, quantity) VALUES (@maxID, @UserID, @InventoryID, @datetime, @price, @quantity)";
+            string query2 = "INSERT INTO [dbo].[History](HistoryID, UserName, dateTime, price, quantity) VALUES (@maxID, @UserID, @datetime, @price, @quantity)";
             SqlCommand comand = new SqlCommand(query1, con);
             SqlCommand comand2 = new SqlCommand(query2, con);
             comand.ExecuteNonQuery();
-            //maxPayHistoryID = 1;
-            maxPayHistoryID = (int)comand.ExecuteScalar();
-            maxPayHistoryID += 1;
+            maxPayHistoryID = 1;
+            //maxPayHistoryID = (int)comand.ExecuteScalar();
+            //maxPayHistoryID += 1;
 
             try
             {
                 comand2.Parameters.AddWithValue("@maxID", maxPayHistoryID);
                 comand2.Parameters.AddWithValue("@UserID", lblUserID.Text);
-                comand2.Parameters.AddWithValue("@InventoryID", lblArtworkName.Text);
                 comand2.Parameters.AddWithValue("@datetime", DateTime.Now);
                 comand2.Parameters.AddWithValue("@price", convertDecimal);
                 comand2.Parameters.AddWithValue("@quantity", txtNumber.Text);

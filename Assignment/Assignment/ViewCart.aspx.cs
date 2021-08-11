@@ -55,6 +55,20 @@ namespace Assignment
                 {
                     newNumber = numberStock - 1;
                     num.Text = "" + newNumber;
+
+                    SqlConnection con;
+                    string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    con = new SqlConnection(strCon);
+
+                    con.Open();
+                    string query = "UPDATE [Cart] SET quantity = @newQuantity WHERE cartID = @cartid";
+                    SqlCommand comand = new SqlCommand(query, con);
+
+                    Label idOFCart = e.Item.FindControl("cartIDLabel") as Label;
+                    comand.Parameters.AddWithValue("@cartID", idOFCart.Text.ToString());
+                    comand.Parameters.AddWithValue("@newquantity", newNumber);
+                    comand.ExecuteNonQuery();
+                    DataList1.DataBind();
                 }
             }
             else if (e.CommandName == "AddQty")
@@ -69,6 +83,20 @@ namespace Assignment
                 {
                     newNumber = numberStock + 1;
                     num.Text = "" + newNumber;
+
+                    SqlConnection con;
+                    string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                    con = new SqlConnection(strCon);
+
+                    con.Open();
+                    string query = "UPDATE [Cart] SET quantity = @newQuantity WHERE cartID = @cartid";
+                    SqlCommand comand = new SqlCommand(query, con);
+
+                    Label idOFCart = e.Item.FindControl("cartIDLabel") as Label;
+                    comand.Parameters.AddWithValue("@cartID", idOFCart.Text.ToString());
+                    comand.Parameters.AddWithValue("@newquantity", newNumber);
+                    comand.ExecuteNonQuery();
+                    DataList1.DataBind();
                 }
             }
         }
