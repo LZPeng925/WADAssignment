@@ -20,6 +20,7 @@ namespace Assignment
             {
                 hyperlink1.Enabled = false;
                 hyperlink2.Enabled = false;
+                hyperlink3.Enabled = false;
                 lblRole.Visible = false;
                 lblName.Visible = false;
                 lblGuest.Text = "Guest";
@@ -31,11 +32,13 @@ namespace Assignment
                 {
                     hyperlink1.Enabled = true;
                     hyperlink2.Enabled = true;
+                    hyperlink3.Enabled = true;
                 }
                 else
                 {
                     hyperlink1.Enabled = false;
                     hyperlink2.Enabled = false;
+                    hyperlink3.Enabled = false;
                 }
                 lblRole.Text = "as " + Session["Role"].ToString();
                 lblName.Text = Session["Username"].ToString();
@@ -96,7 +99,7 @@ namespace Assignment
             {
                 if (Session["Role"].ToString() == "Customer")
                 {
-                    Response.Redirect("WishListPage.aspx");
+                    Response.Redirect("ViewCart.aspx");
                 }
                 else
                 {

@@ -11,11 +11,7 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (PreviousPage != null && PreviousPage.IsCrossPagePostBack)
-            {
-                Label lblID = (Label)PreviousPage.FindControl("lblUserID");
-                lblUserID.Text = "" + lblID.Text;
-            }
+
         }
     }
 }

@@ -7,47 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment {
-    
-    
-    public partial class ConfirmArtworkDetail {
-        
+namespace Assignment
+{
+
+
+    public partial class ConfirmArtworkDetail
+    {
+
         /// <summary>
-        /// lblArtworkID control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArtworkID;
-        
-        /// <summary>
-        /// lblArtworkName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArtworkName;
-        
-        /// <summary>
-        /// lblArtistsName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArtistsName;
-        
-        /// <summary>
-        /// lblArtworkPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArtworkPrice;
-        
+        protected global::System.Web.UI.WebControls.DataList DataList1;
+
         /// <summary>
         /// lblUserID control.
         /// </summary>
@@ -56,7 +31,16 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUserID;
-        
+
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
         /// <summary>
         /// TextBox1 control.
         /// </summary>
@@ -65,7 +49,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// rblWayToPay control.
         /// </summary>
@@ -74,7 +58,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblWayToPay;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -83,7 +67,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// ddlNameofBank control.
         /// </summary>
@@ -92,7 +76,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNameofBank;
-        
+
         /// <summary>
         /// txtNumber control.
         /// </summary>
@@ -101,7 +85,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumber;
-        
+
         /// <summary>
         /// txtAmount control.
         /// </summary>
@@ -110,7 +94,16 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
-        
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
         /// <summary>
         /// btnPay control.
         /// </summary>
@@ -119,7 +112,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPay;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>

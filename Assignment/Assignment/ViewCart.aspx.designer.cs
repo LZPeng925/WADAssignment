@@ -11,71 +11,53 @@ namespace Assignment
 {
 
 
-    public partial class ButtonTest
+    public partial class ViewCart
     {
 
         /// <summary>
-        /// form1 control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
-        /// lblUserID control.
+        /// btnCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserID;
+        protected global::System.Web.UI.WebControls.Button btnCount;
 
         /// <summary>
-        /// ddlInventoryID control.
+        /// lblTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlInventoryID;
+        protected global::System.Web.UI.WebControls.Label lblTotalPrice;
 
         /// <summary>
-        /// btnPayment control.
+        /// btnPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPayment;
+        protected global::System.Web.UI.WebControls.Button btnPay;
 
         /// <summary>
-        /// btnHistory control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHistory;
-
-        /// <summary>
-        /// btnAddtoWish control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddtoWish;
-
-        /// <summary>
-        /// btnViewWishList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewWishList;
+        protected global::System.Web.UI.WebControls.Button btnBack;
 
         /// <summary>
         /// SqlDataSource1 control.

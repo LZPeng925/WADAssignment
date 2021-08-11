@@ -7,20 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment {
-    
-    
-    public partial class PaymentHistory {
-        
-        /// <summary>
-        /// lblUserID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserID;
-        
+namespace Assignment
+{
+
+
+    public partial class PaymentHistory
+    {
+
         /// <summary>
         /// DataList1 control.
         /// </summary>
@@ -29,7 +22,16 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList1;
-        
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>

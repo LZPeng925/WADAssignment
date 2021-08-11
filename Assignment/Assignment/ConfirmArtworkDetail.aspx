@@ -2,21 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
     <style type="text/css">
-
-
-        .auto-style1 {
-            height: 25px;
+        .auto-style6 {
+            height: 24px;
         }
-        .auto-style2 {
-            height: 25px;
-            width: 420px;
-        }
-        .auto-style4 {
-            width: 420px;
-            height: 26px;
-        }
-        .auto-style5 {
-            height: 26px;
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
         }
         </style>
 </asp:Content>  
@@ -26,46 +17,46 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <table style="width:100%;">
                 <tr>
-                    <td class="auto-style1" colspan="3" style="text-align:center">
+                    <td class="auto-style6" style="text-align:center">
                         <h1>Artwork Detail</h1>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">ID:</td>
-                    <td class="auto-style1" colspan="2">
-                        <asp:Label ID="lblArtworkID" runat="server"></asp:Label>
+                    <td>
+                        <asp:DataList ID="DataList1" runat="server" DataKeyField="cartID" class="tablestyle" DataSourceID="SqlDataSource1" RepeatColumns="5" RepeatDirection="Horizontal" Width="100%">
+                            <ItemTemplate>
+                                Artwork ID:
+                                <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
+                                <br />
+                                Artwork Name:
+                                <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
+                                <br />
+                                Artwork Unit Price:
+                                <asp:Label ID="priceLabel" runat="server" Text='<%# Eval("price") %>' />
+                                <br />
+                                Quantity:
+                                <asp:Label ID="quantityLabel" runat="server" Text='<%# Eval("quantity") %>' />
+                                <br />
+                                Total Price for this Artwork:
+                                <asp:Label ID="totalLabel" runat="server" Text='<%# Eval("total") %>' />
+                                <br />
+<br />
+                            </ItemTemplate>
+                        </asp:DataList>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Name of Artwork:&nbsp; </td>
-                    <td class="auto-style1">
-                        <asp:Label ID="lblArtworkName" runat="server"></asp:Label>
-                    </td>
-                    <td class="auto-style1">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">Name of Artists:</td>
-                    <td class="auto-style5" colspan="2">
-                        <asp:Label ID="lblArtistsName" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style4">Unit Price:</td>
-                    <td class="auto-style5" colspan="2">
-                        RM<asp:Label ID="lblArtworkPrice" runat="server"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
+                    <td>
         <div>
             <table style="width:100%;">
                 <tr>
-                    <td>UserID:<br />
+                    <td>UserName:<br />
                         <br />
                         Email: </td>
                     <td>
                         <asp:Label ID="lblUserID" runat="server"></asp:Label>
                         <br />
+                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                         <br />
                         <asp:TextBox ID="TextBox1" runat="server" Width="300px"></asp:TextBox>
                     </td>
@@ -94,9 +85,10 @@
                 </tr>
                 <tr>
                     <td>
+                        Total
                         Quantity</td>
                     <td>
-                        <asp:TextBox ID="txtNumber" runat="server" Width="120px">1</asp:TextBox>
+                        <asp:TextBox ID="txtNumber" runat="server" Width="120px" Enabled="False"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -106,6 +98,11 @@
                 </tr>
             </table>
         </div>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Cart.cartID, Cart.id, artwork.name, artwork.price, Cart.quantity, artwork.price * Cart.quantity AS total, artwork.stock FROM artwork INNER JOIN Cart ON artwork.id = Cart.id WHERE (Cart.UserName = @Username)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="Username" SessionField="Username" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
         <br />
         <asp:Button ID="btnPay" runat="server" Text="Pay" Width="100%" Enabled="False" OnClick="btnPay_Click" />
                         <br />

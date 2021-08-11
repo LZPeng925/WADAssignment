@@ -6,51 +6,45 @@
     <div>
             <table style="width:100%;">
                 <tr>
-                    <td colspan="2">Payment History<br />
-                        UserID:<asp:Label ID="lblUserID" runat="server"></asp:Label>
+                    <td style="text-align:center" colspan="2"><h1>Payment History</h1>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="historyID">
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" DataKeyField="historyID" RepeatColumns="5" RepeatDirection="Horizontal" Width="100%">
                             <ItemTemplate>
-                                historyID:
+                                History ID:
                                 <asp:Label ID="historyIDLabel" runat="server" Text='<%# Eval("historyID") %>' />
                                 <br />
-                                userID:
-                                <asp:Label ID="userIDLabel" runat="server" Text='<%# Eval("userID") %>' />
+                                Payment Date:
+                                <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' />
                                 <br />
-                                artworkID:
-                                <asp:Label ID="artworkIDLabel" runat="server" Text='<%# Eval("artworkID") %>' />
+                                Pay Time:
+                                <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
                                 <br />
-                                Column1:
-                                <asp:Label ID="Column1Label" runat="server" Text='<%# Eval("Column1") %>' />
+                                TotalPrice:
+                                <asp:Label ID="TotalPriceLabel" runat="server" Text='<%# Eval("TotalPrice") %>' />
                                 <br />
-                                Column2:
-                                <asp:Label ID="Column2Label" runat="server" Text='<%# Eval("Column2") %>' />
-                                <br />
-                                Column3:
-                                <asp:Label ID="Column3Label" runat="server" Text='<%# Eval("Column3") %>' />
-                                <br />
-                                quantity:
+                                Quantity:
                                 <asp:Label ID="quantityLabel" runat="server" Text='<%# Eval("quantity") %>' />
                                 <br />
-<br />
+                                <br />
                             </ItemTemplate>
                         </asp:DataList>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <td style="text-align:center">
+                        <asp:Button ID="Button1" runat="server" PostBackUrl="~/Display.aspx" Text="Back" Width="230px" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT historyID, userID, artworkID, FORMAT(dateTime, 'dd-MM-yyyy'), FORMAT(dateTime, 'hh:mm tt'), FORMAT(price, '.00'), quantity FROM History WHERE (userID = @userID)
-">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT historyID, FORMAT(dateTime, 'dd-MM-yyyy') AS Date, FORMAT(dateTime, 'hh:mm tt') AS Time, FORMAT(price, '.00') AS TotalPrice, quantity FROM History WHERE (UserName = @username)">
             <SelectParameters>
-                <asp:ControlParameter ControlID="lblUserID" Name="userID" PropertyName="Text" />
+                <asp:SessionParameter Name="username" SessionField="Username" />
             </SelectParameters>
         </asp:SqlDataSource>
 </asp:Content>  
