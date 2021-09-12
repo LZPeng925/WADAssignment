@@ -29,10 +29,6 @@
             height: 40px;
             width: 247px;
         }
-        .auto-style13 {
-            width: 238px;
-            height: 27px;
-        }
         .auto-style14 {
             height: 10px;
             width: 238px;
@@ -72,6 +68,7 @@
         }
         </style>
 </asp:Content>  
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
      <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
          Upload
@@ -102,6 +99,8 @@
                 <td class="auto-style19" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
+
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
 
                 </td>
             </tr>
@@ -165,15 +164,13 @@
                 </td>
                 <td class="auto-style24" style="background-color: #D2ECF2">
 
-                    <asp:DropDownList ID="ddlManagePaintTechniques" runat="server">
+                    <asp:DropDownList ID="ddlManagePaintTechniques" runat="server" OnSelectedIndexChanged="ddlManagePaintTechniques_SelectedIndexChanged">
                         <asp:ListItem>Acrylic</asp:ListItem>
                         <asp:ListItem>Chalk</asp:ListItem>
-                        <asp:ListItem>Collage</asp:ListItem>
                         <asp:ListItem>Earth</asp:ListItem>
                         <asp:ListItem>Ink</asp:ListItem>
                         <asp:ListItem>Objects</asp:ListItem>
                         <asp:ListItem>Oil Pastel</asp:ListItem>
-                        <asp:ListItem>Pencil</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
 
@@ -206,21 +203,31 @@
             </tr>
             
             <tr>
-                <td class="auto-style13">
+                <td class="auto-style26" style="background-color: #FAEBD7">
 
-                    <asp:Image ID="Image2" runat="server" Width="279px" Height="322px" />
+                    &nbsp;</td>
+                <td class="auto-style27" style="background-color: #FAEBD7">
 
-                </td>
+                    &nbsp;</td>
+            </tr>
+            
+            <tr>
+                
                 <td>
 
                     Please Upload The Photo<br />
                     <br />
-                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()"/>
+                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()" Width="321px"/>
                     <br />
                     <br />
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
                     <br />
                     <br />
+                </td>
+                <td>
+
+                    <asp:Image ID="Image2" runat="server" />
+
                 </td>
             </tr>
             

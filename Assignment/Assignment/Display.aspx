@@ -6,6 +6,9 @@
             margin-left: auto;
             margin-right: auto;
         }
+            .auto-style1 {
+                margin-top: 38px;
+            }
         </style>
 </asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
@@ -15,7 +18,8 @@
     </header>
         <div>
             <br />
-            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand" RepeatColumns="5">
+            <asp:Button ID="Button3" runat="server" BackColor="#000066" Font-Bold="True" ForeColor="White" Text="Edit" Width="125px" OnClick="Button3_Click" />
+            <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand" RepeatColumns="5" CssClass="auto-style1" Height="608px" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
                 <ItemTemplate>
                     ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -46,6 +50,7 @@
                     <br />
                           <asp:ImageButton ID="Button1" runat="server" CommandName="AddToCart" Text="Add To Cart" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
                           &nbsp;<asp:ImageButton ID="Button2" runat="server" CommandName="AddToWishlist" Text="Add To WishList" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
+                          &nbsp;<asp:ImageButton ID="ImageButton3" runat="server" CommandName="EditArtwork" Text="Edit Artwork" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
                     <br />
                     <br />
                 </ItemTemplate>

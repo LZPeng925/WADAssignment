@@ -73,6 +73,9 @@ namespace Assignment
                 con.Close();
                 GenerateAutoID();
                 lblInformation.Text = "Succesfully!";
+                
+                
+
             }
         }
 
@@ -84,5 +87,15 @@ namespace Assignment
             con.Open();
             SqlCommand cmd = new SqlCommand("select image from artwork where  ");
         }
+
+        
+
+        private void validName()
+        {
+
+        }
+
+
+
     }
 }

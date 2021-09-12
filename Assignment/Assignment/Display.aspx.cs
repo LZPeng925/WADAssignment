@@ -121,6 +121,16 @@ namespace Assignment
             }
         }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         //{
         //    if (e.Row.RowType == DataControlRowType.DataRow)

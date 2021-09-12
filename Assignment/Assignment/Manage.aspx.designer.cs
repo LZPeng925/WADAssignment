@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment {
-    
-    
-    public partial class ArtworkManage {
-        
+namespace Assignment
+{
+
+
+    public partial class ArtworkManage
+    {
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// lblManageID control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblManageID;
-        
+
         /// <summary>
         /// Label10 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label10;
-        
+
         /// <summary>
         /// txtManageName control.
         /// </summary>
@@ -47,7 +49,16 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManageName;
-        
+
+        /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+
         /// <summary>
         /// Label11 control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label11;
-        
+
         /// <summary>
         /// txtManageArtists control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManageArtists;
-        
+
         /// <summary>
         /// Label12 control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label12;
-        
+
         /// <summary>
         /// ddlManagePaintCatego control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlManagePaintCatego;
-        
+
         /// <summary>
         /// Label13 control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label13;
-        
+
         /// <summary>
         /// ddlManagePaintingStyle control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlManagePaintingStyle;
-        
+
         /// <summary>
         /// Label14 control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label14;
-        
+
         /// <summary>
         /// ddlManagePaintTechniques control.
         /// </summary>
@@ -119,7 +130,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlManagePaintTechniques;
-        
+
         /// <summary>
         /// Label15 control.
         /// </summary>
@@ -128,7 +139,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label15;
-        
+
         /// <summary>
         /// txtManagePrice control.
         /// </summary>
@@ -137,7 +148,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManagePrice;
-        
+
         /// <summary>
         /// Label16 control.
         /// </summary>
@@ -146,7 +157,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label16;
-        
+
         /// <summary>
         /// txtManageStock control.
         /// </summary>
@@ -155,16 +166,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManageStock;
-        
-        /// <summary>
-        /// Image2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
-        
+
         /// <summary>
         /// FileUpload1 control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
+
         /// <summary>
         /// lblUploadPic control.
         /// </summary>
@@ -182,7 +184,16 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUploadPic;
-        
+
+        /// <summary>
+        /// Image2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image2;
+
         /// <summary>
         /// lblInformation control.
         /// </summary>
@@ -191,7 +202,7 @@ namespace Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInformation;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>

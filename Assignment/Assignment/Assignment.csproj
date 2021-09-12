@@ -75,6 +75,7 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="ConfirmArtworkDetail.aspx" />
     <Content Include="Display.aspx" />
+    <Content Include="EditGallery.aspx" />
     <Content Include="Manage.aspx" />
     <Content Include="ManageDisplay.aspx" />
     <Content Include="PaymentHistory.aspx" />
@@ -114,6 +115,13 @@
     </Compile>
     <Compile Include="Display.aspx.designer.cs">
       <DependentUpon>Display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditGallery.aspx.cs">
+      <DependentUpon>EditGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditGallery.aspx.designer.cs">
+      <DependentUpon>EditGallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
