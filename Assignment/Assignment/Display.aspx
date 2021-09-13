@@ -18,7 +18,6 @@
     </header>
         <div>
             <br />
-            <asp:Button ID="Button3" runat="server" BackColor="#000066" Font-Bold="True" ForeColor="White" Text="Edit" Width="125px"  />
             <br />
             <asp:TextBox ID="txtSearch" AutoPostBack="true" runat="server"></asp:TextBox>
                     <br />
@@ -141,8 +140,9 @@
                     stock:
                     <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' />
                     <br />
-                    <asp:ImageButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("id") %>' Text="Edit" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
-                          &nbsp;<asp:ImageButton ID="btnDelete" runat="server" CommandName="Delete"  Text="Delete" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
+                    <br />
+                    <asp:ImageButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("id") %>' Text="Edit" Height="50px" Width="50px" ImageUrl="file:///C:/Users/USER/Downloads/edit.png" />
+                   
                     <br />
                 </ItemTemplate>
             </asp:DataList>
