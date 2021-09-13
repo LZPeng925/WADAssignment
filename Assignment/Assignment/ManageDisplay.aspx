@@ -24,9 +24,6 @@
         .auto-style10 {
             height: 60px;
         }
-        .auto-style11 {
-            margin-top: 31px;
-        }
         .auto-style12 {
             width: 4px;
         }
@@ -52,23 +49,11 @@
                 </td>
              
                 <td class="auto-style5">
-                     <asp:Label ID="Label1" runat="server" Text="Please Enter The Artwork ID"></asp:Label>
+                     Search :
                     
                 </td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtManageSearchID" runat="server"></asp:TextBox>
-
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style6">
-
-                </td>
-                <td class="auto-style5">
-                      <asp:Label ID="Label2" runat="server" Text="Artists"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtManageSearchArtists" runat="server"></asp:TextBox>
 
                 </td>
             </tr>
@@ -80,7 +65,7 @@
                 <td class="auto-style10">
                
               
-                    <asp:Button ID="btnManageSearch" runat="server" Text="Search" Width="117px" BackColor="#006666" Font-Bold="True" ForeColor="White" Height="36px" />
+                    <asp:Button ID="btnManageSearch" runat="server" Text="Search" Width="117px" BackColor="#006666" Font-Bold="True" ForeColor="White" Height="36px" OnClick="btnManageSearch_Click" />
                </td>
               
             </tr>
@@ -166,6 +151,8 @@
            </tr>
           
        </table>
+
+    <asp:DataList ID="DataList1" runat="server"></asp:DataList>
       
         <div class="auto-style14">
             <asp:Button ID="btnBack" runat="server" Text="Back" BackColor="#006666" Font-Bold="True" ForeColor="White" Height="35px" Width="104px" />

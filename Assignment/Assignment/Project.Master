@@ -82,7 +82,9 @@
               </li>
               <li class="nav-item"><div class="division">
                   <asp:Button ID="btnArtwork" runat="server" Text="Artwork" CssClass="btn-primary focus" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnArtwork_Click" />
-                  </div>
+                  
+              
+              </div>
               </li>
               <li class="nav-item"><div class="division">
                   <asp:Button ID="btnCart" runat="server" Text="Cart" CssClass="btn-primary focus" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnCart_Click" />

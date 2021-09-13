@@ -99,8 +99,9 @@
                 <td class="auto-style19" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
-
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"></asp:CompareValidator>
+                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Enter a valid name" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Please Enter Artwork Name" ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    
 
                 </td>
             </tr>
@@ -113,6 +114,7 @@
                 <td class="auto-style7">
 
                     <asp:TextBox ID="txtManageArtists" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Please Enter Artist's name" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -164,7 +166,7 @@
                 </td>
                 <td class="auto-style24" style="background-color: #D2ECF2">
 
-                    <asp:DropDownList ID="ddlManagePaintTechniques" runat="server" OnSelectedIndexChanged="ddlManagePaintTechniques_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlManagePaintTechniques" runat="server">
                         <asp:ListItem>Acrylic</asp:ListItem>
                         <asp:ListItem>Chalk</asp:ListItem>
                         <asp:ListItem>Earth</asp:ListItem>
@@ -185,6 +187,9 @@
                 <td class="auto-style25">
 
                     <asp:TextBox ID="txtManagePrice" runat="server"></asp:TextBox>
+
+                    <br />
+                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Please Enter Your Correct Product Price" ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
 
                 </td>
             </tr>
@@ -220,13 +225,14 @@
                     <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()" Width="321px"/>
                     <br />
                     <br />
-                    <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
+                    <asp:Label ID="lblUploadPic" runat="server" ForeColor="#F93400"></asp:Label>
                     <br />
                     <br />
                 </td>
                 <td>
 
-                    <asp:Image ID="Image2" runat="server" />
+                    <asp:Image ID="Image2" runat="server" Width="300px" Height="300px"  />
+
 
                 </td>
             </tr>
