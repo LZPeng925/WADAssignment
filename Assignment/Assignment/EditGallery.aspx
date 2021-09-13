@@ -164,6 +164,9 @@
 
          <br />
          <br />
+         <asp:Button ID="btnUpdate" runat="server" Text="Update" />
+         <asp:Button ID="btnDelete" runat="server" Text="Delete" />
+         <br />
 
         <br />
         <div class="center">

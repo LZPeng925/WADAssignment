@@ -79,21 +79,15 @@ namespace Assignment
             }
         }
 
-        protected void btnManageUpload_Click(object sender, EventArgs e)
-        {
-            SqlConnection con;
-            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strCon);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select image from artwork where  ");
-        }
+        //protected void btnManageUpload_Click(object sender, EventArgs e)
+        //{
+        //    SqlConnection con;
+        //    string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        //    con = new SqlConnection(strCon);
+        //    con.Open();
+        //    SqlCommand cmd = new SqlCommand("select image from artwork where  ");
+        //}
 
-        
-
-        private void validName()
-        {
-
-        }
 
 
 
