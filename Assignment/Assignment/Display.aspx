@@ -18,7 +18,7 @@
     </header>
         <div>
             <br />
-            <asp:Button ID="Button3" runat="server" BackColor="#000066" Font-Bold="True" ForeColor="White" Text="Edit" Width="125px" OnClick="Button3_Click" />
+            <asp:Button ID="Button3" runat="server" BackColor="#000066" Font-Bold="True" ForeColor="White" Text="Edit" Width="125px"  />
             <br />
             <asp:TextBox ID="txtSearch" AutoPostBack="true" runat="server"></asp:TextBox>
                     <br />
@@ -112,7 +112,7 @@
                     <asp:SessionParameter Name="artists" SessionField="Username" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:DataList ID="DataList2" class="tablestyle" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Both" RepeatDirection="Horizontal" BackColor="AntiqueWhite" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+            <asp:DataList ID="DataList2" class="tablestyle" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Both" RepeatDirection="Horizontal" BackColor="AntiqueWhite" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList2_ItemCommand1">
                 <ItemTemplate>
                     ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -141,6 +141,8 @@
                     stock:
                     <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' />
                     <br />
+                    <asp:ImageButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("id") %>' Text="Edit" Height="40px" Width="40px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/add-in-shopping-cart-461858.png" />
+                          &nbsp;<asp:ImageButton ID="btnDelete" runat="server" CommandName="Delete"  Text="Delete" Height="40px" Width="40px" ImageUrl="https://icons-for-free.com/iconfiles/png/512/heart-131965017458786724.png" />
                     <br />
                 </ItemTemplate>
             </asp:DataList>

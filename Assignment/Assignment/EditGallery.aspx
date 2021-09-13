@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 324px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,7 +30,7 @@
                          <asp:Label ID="Label2" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
                    </td>
                   <td class="auto-style15">
-                         <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+                         <asp:Label ID="lblID" runat="server"></asp:Label>
                </td>
         </tr>
             <tr>
@@ -142,21 +147,21 @@
             
             <tr>
                 
-                <td>
+                <td class="auto-style1">
 
                     Photo<br />
                     
-                     <asp:Image ID="Image1" runat="server" />
+                     <asp:Image ID="Image1" runat="server" width ="300px" Height="300px" />
                     
                 </td>
-                <td>
+                <td class="auto-style1">
                    
 
                     <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()"/>
                     
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
                 &nbsp;
-                    <asp:Button ID="btnChangePic" runat="server" OnClick="btnChangePic_Click" Text="Change Picture" />
+                    <asp:Button ID="btnChangePic" runat="server" OnClick="btnChangePic_Click" Text="Change Picture" BackColor="#000066" Font-Bold="True" ForeColor="White" />
                 </td>
             </tr>
             
@@ -164,21 +169,31 @@
 
          <br />
          <br />
-         <asp:Button ID="btnUpdate" runat="server" Text="Update" />
-         <asp:Button ID="btnDelete" runat="server" Text="Delete" />
          <br />
 
         <br />
         <div class="center">
+            <center>
+
+            
         <asp:Label ID="lblInformation" runat="server" Font-Bold="True" ForeColor="#000066"></asp:Label>
             <br />
+            </center>
         </div>
         <br />
         
         <div class="center">
+            <center>
+
+            
             <br/>
-             <asp:Button ID="btnUpload" runat="server" Text="Upload" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnUpload_Click"  />
-        </div>
+             <asp:Button ID="btnUpload" runat="server" Text="Upload" Height="40px" Width="127px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnUpload_Click"  />
+         &nbsp;&nbsp;
+         <asp:Button ID="btnDelete" runat="server" Text="Delete" BackColor="#000066" Font-Bold="True" ForeColor="White" Height="40px" OnClick="btnDelete_Click" Width="127px" />
+         </center>
+       
+            </div>
+
     </form>
 </body>
 </html>

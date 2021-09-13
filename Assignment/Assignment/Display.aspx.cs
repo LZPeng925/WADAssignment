@@ -121,10 +121,7 @@ namespace Assignment
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
-        {
 
-        }
 
         public void searchData(String valueToSearch)
         {
@@ -155,6 +152,18 @@ namespace Assignment
         {
             string valueToSearch = txtSearch.Text.ToString();
             searchData(valueToSearch);
+        }
+
+        protected void DataList2_ItemCommand1(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                Label idOFArtwork =  e.Item.FindControl("idLabel") as Label ;
+                Session["id"] = idOFArtwork.Text;
+                //idOFArtwork.Visible = true;
+                Response.Redirect("EditGallery.aspx?id=" + e.CommandArgument.ToString());
+
+            }
         }
 
         //protected void OnRowDataBound(object sender, GridViewRowEventArgs e)

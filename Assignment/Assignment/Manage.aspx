@@ -71,7 +71,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
      <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
-         Upload
+         Upload NEW
          Gallery
         <br />
     </header>
@@ -99,8 +99,8 @@
                 <td class="auto-style19" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Enter a valid name" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Please Enter Artwork Name" ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Only Alphabet" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                     
 
                 </td>
@@ -114,7 +114,7 @@
                 <td class="auto-style7">
 
                     <asp:TextBox ID="txtManageArtists" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Please Enter Artist's name" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Only Alphabet." ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -137,6 +137,9 @@
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
 
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlManagePaintCatego" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
                 </td>
             </tr>
             <tr>
@@ -155,6 +158,9 @@
                         <asp:ListItem>Vintage</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
+
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlManagePaintingStyle"  ForeColor="Red" SetFocusOnError="True" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -176,6 +182,9 @@
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
 
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlManagePaintTechniques"  ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
                 </td>
             </tr>
             <tr>
@@ -189,7 +198,8 @@
                     <asp:TextBox ID="txtManagePrice" runat="server"></asp:TextBox>
 
                     <br />
-                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Please Enter Your Correct Product Price" ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Only numeric allowed." ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqPrice" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManagePrice" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -203,6 +213,10 @@
                 <td class="auto-style25" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtManageStock" runat="server"></asp:TextBox>
+
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegStock" ValidationExpression="^[0-9]*$" ValidationGroup="NumericValidate" runat="server" ControlToValidate="txtManageStock" ErrorMessage="Only numeric allowed."  ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqStock" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageStock" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>

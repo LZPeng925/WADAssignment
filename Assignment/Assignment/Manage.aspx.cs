@@ -73,12 +73,18 @@ namespace Assignment
                 con.Close();
                 GenerateAutoID();
                 lblInformation.Text = "Succesfully!";
-                
-                
-
+ 
             }
-        }
 
+        }
+        public void clearAllData()
+        {
+            lblManageID.Text = "";
+            txtManageName.Text = "";
+            txtManageArtists.Text = "";
+            
+  
+        }
         //protected void btnManageUpload_Click(object sender, EventArgs e)
         //{
         //    SqlConnection con;
