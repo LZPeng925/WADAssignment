@@ -42,6 +42,8 @@
                 <td class="auto-style19" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtEditName" runat="server" ></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtEditName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Only Alphabet" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtEditName" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -54,6 +56,8 @@
                 <td class="auto-style7">
 
                     <asp:TextBox ID="txtEditArtists" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEditArtists" CssClass="error" Display="Dynamic" ErrorMessage="Only Alphabet." ForeColor="Red" ></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="ReqArtists" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtEditArtists" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -76,6 +80,7 @@
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlEditPaintCatego" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -94,6 +99,9 @@
                         <asp:ListItem>Vintage</asp:ListItem>
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
+
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlEditPaintingStyle" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -117,6 +125,10 @@
                         <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
 
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please make a selection" ControlToValidate="ddlEditPaintTechniques" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+
                 </td>
             </tr>
             <tr>
@@ -128,6 +140,11 @@
                 <td class="auto-style25">
 
                     <asp:TextBox ID="txtEditPrice" runat="server"></asp:TextBox>
+
+                    <br />
+
+                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Only numeric allowed." ControlToValidate="txtEditPrice" Display="Dynamic" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqPrice" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtEditPrice" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -141,6 +158,9 @@
                 <td class="auto-style25" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtEditStock" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegStock" ValidationExpression="^[0-9]*$" ValidationGroup="NumericValidate" runat="server" ControlToValidate="txtEditStock" ErrorMessage="Only numeric allowed."  ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqStock" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtEditStock" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>

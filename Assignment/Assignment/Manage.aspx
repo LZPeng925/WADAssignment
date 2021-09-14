@@ -99,8 +99,8 @@
                 <td class="auto-style19" style="background-color: #D2ECF2">
 
                     <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Only Alphabet" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Only Alphabet" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
                     
 
                 </td>
@@ -114,7 +114,8 @@
                 <td class="auto-style7">
 
                     <asp:TextBox ID="txtManageArtists" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Only Alphabet." ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Only Alphabet." ForeColor="Red" ></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageArti" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -198,8 +199,8 @@
                     <asp:TextBox ID="txtManagePrice" runat="server"></asp:TextBox>
 
                     <br />
-                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Only numeric allowed." ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="ReqPrice" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManagePrice" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Only numeric allowed." ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqPrice" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManagePrice" CssClass="error" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -215,8 +216,8 @@
                     <asp:TextBox ID="txtManageStock" runat="server"></asp:TextBox>
 
                     <br />
-                    <asp:RegularExpressionValidator ID="RegStock" ValidationExpression="^[0-9]*$" ValidationGroup="NumericValidate" runat="server" ControlToValidate="txtManageStock" ErrorMessage="Only numeric allowed."  ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="ReqStock" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageStock" CssClass="error" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegStock" ValidationExpression="^[0-9]*$" ValidationGroup="NumericValidate" runat="server" ControlToValidate="txtManageStock" ErrorMessage="Only numeric allowed."  ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="ReqStock" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageStock" CssClass="error" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
