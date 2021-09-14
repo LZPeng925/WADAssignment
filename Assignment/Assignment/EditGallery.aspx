@@ -30,7 +30,7 @@
                          <asp:Label ID="Label2" runat="server" Text="Artwork ID" Font-Size="Medium"></asp:Label>
                    </td>
                   <td class="auto-style15">
-                         <asp:Label ID="lblID" runat="server"></asp:Label>
+                         <asp:Label ID="lblID" runat="server" ></asp:Label>
                </td>
         </tr>
             <tr>
@@ -161,8 +161,7 @@
                     
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
                 &nbsp;
-                    <asp:Button ID="btnChangePic" runat="server" OnClick="btnChangePic_Click" Text="Change Picture" BackColor="#000066" Font-Bold="True" ForeColor="White" />
-                </td>
+                    </td>
             </tr>
             
         </table>
@@ -189,7 +188,7 @@
             <br/>
              <asp:Button ID="btnUpload" runat="server" Text="Upload" Height="40px" Width="127px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnUpload_Click"  />
          &nbsp;&nbsp;
-         <asp:Button ID="btnDelete" runat="server" Text="Delete" BackColor="#000066" Font-Bold="True" ForeColor="White" Height="40px" OnClick="btnDelete_Click" Width="127px" />
+         <asp:Button ID="btnDelete" runat="server" CommandArgument='<%# Eval("id") %>' Text="Delete" BackColor="#000066" Font-Bold="True" ForeColor="White" Height="40px" OnClick="btnDelete_Click" Width="127px" />
          </center>
        
             </div>
