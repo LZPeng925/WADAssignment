@@ -19,11 +19,16 @@
         <div>
             <br />
             <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtSearch" AutoPostBack="true" runat="server"></asp:TextBox>
                     <br />
-            <asp:Label ID="lblNotice" runat="server"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblNotice" runat="server" ForeColor="Red"></asp:Label >
                     <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnManageSearch"  runat="server" Text="Search" Width="117px" BackColor="#006666" Font-Bold="True" ForeColor="White" Height="36px" OnClick="btnManageSearch_Click" />
+            
+            <br />
             
             <asp:DataList class="tablestyle" ID="DataList1" runat="server" DataKeyField="id" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" GridLines="Both" BackColor="AntiqueWhite" BorderColor="#999999" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList1_ItemCommand" RepeatColumns="5" CssClass="auto-style1" Height="608px">
                 <ItemTemplate>
@@ -141,7 +146,7 @@
                     <asp:Label ID="stockLabel" runat="server" Text='<%# Eval("stock") %>' />
                     <br />
                     <br />
-                    <asp:ImageButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("id") %>' Text="Edit" Height="50px" Width="50px" ImageUrl="file:///C:/Users/USER/Downloads/edit.png" />
+                    <asp:ImageButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("id") %>' Text="Edit" Height="50px" Width="50px" ImageUrl="https://cdn.iconscout.com/icon/free/png-256/edit-833-518019.png" />
                    
                     <br />
                 </ItemTemplate>

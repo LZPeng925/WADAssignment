@@ -100,6 +100,7 @@
 
                     <asp:TextBox ID="txtManageName" runat="server" ></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegName" runat="server" ControlToValidate="txtManageName" ValidationExpression="^[a-zA-Z'.\s]{1,50}" Text="Only Alphabet" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <br />
                     <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageName" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
                     
 
@@ -115,7 +116,8 @@
 
                     <asp:TextBox ID="txtManageArtists" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ErrorMessage="Only Alphabet." ForeColor="Red" ></asp:RequiredFieldValidator>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageArti" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageArtists" CssClass="error" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
                 </td>
             </tr>
@@ -168,19 +170,18 @@
             <tr>
                 <td class="auto-style18" style="background-color: #D2ECF2">
 
-                    <asp:Label ID="Label14" runat="server" Text="Painting Techniques"></asp:Label>
+                    <asp:Label ID="Label14" runat="server" Text="Size"></asp:Label>
 
                 </td>
                 <td class="auto-style24" style="background-color: #D2ECF2">
 
                     <asp:DropDownList ID="ddlManagePaintTechniques" runat="server">
-                        <asp:ListItem>Acrylic</asp:ListItem>
-                        <asp:ListItem>Chalk</asp:ListItem>
-                        <asp:ListItem>Earth</asp:ListItem>
-                        <asp:ListItem>Ink</asp:ListItem>
-                        <asp:ListItem>Objects</asp:ListItem>
-                        <asp:ListItem>Oil Pastel</asp:ListItem>
-                        <asp:ListItem>Other</asp:ListItem>
+                        <asp:ListItem Value="Mini (8'' x 10'')">Mini (8&#39;&#39; x 10&#39;&#39;)</asp:ListItem>
+                        <asp:ListItem>Small (12&#39;&#39;x18&#39;&#39;)</asp:ListItem>
+                        <asp:ListItem>Medium (18&#39;&#39;x24&#39;&#39;)</asp:ListItem>
+                        <asp:ListItem>Large (24&#39;&#39;x36&#39;&#39;)</asp:ListItem>
+                        <asp:ListItem>Oversized (36&#39;&#39;x48&#39;&#39;)</asp:ListItem>
+                        <asp:ListItem>Gaint (48&#39;&#39;x64&#39;&#39;)</asp:ListItem>
                     </asp:DropDownList>
 
                     <br />
@@ -200,6 +201,7 @@
 
                     <br />
                     <asp:RegularExpressionValidator ID="regPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$" runat="server" ErrorMessage="Only numeric allowed." ControlToValidate="txtManagePrice" Display="Dynamic" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <br />
                     <asp:RequiredFieldValidator ID="ReqPrice" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManagePrice" CssClass="error" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                 </td>
@@ -217,6 +219,7 @@
 
                     <br />
                     <asp:RegularExpressionValidator ID="RegStock" ValidationExpression="^[0-9]*$" ValidationGroup="NumericValidate" runat="server" ControlToValidate="txtManageStock" ErrorMessage="Only numeric allowed."  ForeColor="Red" ></asp:RegularExpressionValidator>
+                    <br />
                     <asp:RequiredFieldValidator ID="ReqStock" runat="server" ErrorMessage="Cannot Empyt." ControlToValidate="txtManageStock" CssClass="error" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                 </td>
@@ -261,7 +264,20 @@
         <br />
         
         <div class="center">
+
+            <center>
+
+           
+
             <br/>
+            <asp:Button ID="Button1" runat="server"  Text="Back To Menu" Height="33px" Width="171px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="Button1_Click" PostBackUrl="~/Display.aspx" />
+            
+
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+
              <asp:Button ID="Button2" runat="server" Text="Submit" Height="33px" Width="87px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="btnSubmit_Click"  />
+         </center>
+        
         </div>
 </asp:Content>  
