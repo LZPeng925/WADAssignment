@@ -12,11 +12,7 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (PreviousPage != null && PreviousPage.IsCrossPagePostBack)
-            {
-                TextBox userName = PreviousPage.FindControl("txtUsername") as TextBox;
-                lblUsername.Text = userName.Text;
-            }
+            lblUsername.Text = Session["Username1"].ToString();
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)

@@ -27,7 +27,7 @@
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </td>
                 <td class="auto-style1">
-                    <asp:Button ID="btnUpload" runat="server" CssClass="auto-style7" OnClick="btnUpload_Click" Text="Change Picture" Width="125px"/>
+                    <asp:Button ID="btnUpload" runat="server" CssClass="auto-style7" OnClick="btnUpload_Click" Text="Change Picture" Width="125px" CausesValidation="false"/>
                 </td>
             </tr>
             <tr>

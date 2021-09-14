@@ -86,7 +86,7 @@
                     <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" />
                 </td>
                 <td class="auto-style1">
-                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CausesValidation="false" />
                 </td>
             </tr>
         </table>

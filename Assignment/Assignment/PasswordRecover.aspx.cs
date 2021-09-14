@@ -14,7 +14,7 @@ namespace Assignment
 {
     public partial class PasswordRecover : System.Web.UI.Page
     {
-        private string verificationCode;
+        private string verificationCode="";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -44,10 +44,10 @@ namespace Assignment
             try
             {
                 Random generator = new Random();
-                verificationCode = "RSD" + generator.Next(0, 1000).ToString("D3");
+                Session["verificationCode"] = "RSD" + generator.Next(0, 1000).ToString("D3");
                 MailMessage mailMessage = new MailMessage
                     ("jerry00lzp@gmail.com", txtEmail.Text.ToString());
-                mailMessage.Body = "Dear RSD Gallery Users" + "\n\n" + "Your Verification Code : " + verificationCode
+                mailMessage.Body = "Dear RSD Gallery Users" + "\n\n" + "Your Verification Code : " + Session["verificationCode"].ToString()
                     + "\nNot your action? Do not share the code to anyone.\n\nBest Regards, \r\nRSD Gallery";
                 mailMessage.Subject = "RSD Gallery password recovery verification code";
                 SmtpClient smtpClient = new SmtpClient();
@@ -117,8 +117,9 @@ namespace Assignment
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (verificationCode.Equals(txtCode.Text))
+            if (Session["verificationCode"].ToString()== txtCode.Text.ToString())
             {
+                Session["Username1"] = txtUsername.Text;
                 Response.Redirect("PasswordReset.aspx");
             }
             else
