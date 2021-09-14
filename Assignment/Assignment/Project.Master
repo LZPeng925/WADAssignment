@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Project.master.cs" Inherits="Assignment.Project" %>
+<%@ Register TagPrefix="labelC" TagName="labelName" Src="~/UserPreference.ascx" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheets/Style.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+        .body-style {
+            background-color:antiquewhite;
+            margin:0px;
+        }
+        .footer{
+            margin-top:100px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .navcolor {
+            background-color: cyan;
+        }
+         .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+        </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+</head>
+<body class="body-style">
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navcolor" style="padding:0px 0px 0px 15px">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="Display.aspx">
+             <asp:Image ID="Image1" runat="server" ImageUrl="Picture/Logo.jfif" Width="120px" height="50px" CausesValidation="false"/>
+             </a>&nbsp;<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item active"><div class="division">
+                  <asp:Button ID="btnMenu" runat="server" Text="Menu" CssClass="btn-primary focus" CausesValidation="false" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" Font-Overline="False" style="padding-bottom:25px" OnClick="btnMenu_Click" />
+                  </div>
+              </li>
+              <li class="nav-item"><div class="division">
+                  <asp:Button ID="btnArtwork" runat="server" Text="Artwork" CssClass="btn-primary focus" CausesValidation="false" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnArtwork_Click" />
+                  </div>
+              </li>
+              <li class="nav-item"><div class="division">
+                  <asp:Button ID="btnCart" runat="server" Text="Cart" CssClass="btn-primary focus" CausesValidation="false" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnCart_Click" />
+                  </div>
+              </li>
+              <li class="nav-item"><div class="division">
+                    <div class="dropdown">
+                      <asp:Button ID="btnProfile" runat="server" Text="Profile" CssClass="btn-primary focus" CausesValidation="false" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" style="padding-bottom:25px" OnClick="btnProfile_Click" />
+                      <div class="dropdown-content">
+                    <asp:HyperLink ID="hyperlink1" runat="server" navigateUrl="~/WishListPage.aspx">Wish List</asp:HyperLink>
+                    <asp:HyperLink ID="hyperlink2" runat="server" navigateUrl="~/ViewCart.aspx">Cart List</asp:HyperLink>
+                    <asp:HyperLink ID="hyperlink3" runat="server" navigateUrl="~/PaymentHistory.aspx">Payment History</asp:HyperLink>
+                     </div>
+                  </div>
+              </div>
+              </li>
+            </ul>
+                 <labelC:labelName id="labelsC" runat="server"/>
+               <asp:Button ID="btnLogout" runat="server" Text="LogOut" CssClass="btn-primary focus" CausesValidation="false" BackColor="#D2ECF2" BorderStyle="Ridge" Height="50px" Width="100px" BorderWidth="15px" ForeColor="Black" Font-Bold="True" OnClick="btnLogout_Click" style="margin-left:15px; padding-bottom:25px;" />
+          </div>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+<footer id="footer" >  
+    <div class="footer">
+    <p class="center">copyright @2021 RSD2_G3</p>
+        </div>
+</footer> 
+    </form>
+</body>
+</html>
