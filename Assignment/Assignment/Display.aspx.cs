@@ -190,35 +190,44 @@ namespace Assignment
 
 
 
-        public void searchData(String valueToSearch)
-        {
+        //public void searchData(String valueToSearch)
+        //{
 
-            SqlConnection con;
-            SqlCommand command;
+        //    SqlConnection con;
+        //    SqlCommand command;
 
-            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            con = new SqlConnection(strCon);
-            string query = "Select * from artwork WHERE CONCAT([id], [name], [artists], [paintCate], [paintStyle], [paintTech], [price], [stock]) like '%" + valueToSearch + "%'";
-            command = new SqlCommand(query, con);
-            con.Open();
-            SqlDataReader sdr = command.ExecuteReader();
-            if (sdr.HasRows)
-            {
-                DataList3.DataSource = sdr;
-                DataList3.DataBind();
-            }
-            else
-            {
-                lblNotice.Text = "Not Data Found";
-            }
-            con.Close();
+        //    string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        //    con = new SqlConnection(strCon);
+        //    string query = "Select * from artwork WHERE CONCAT([id], [name], [artists], [paintCate], [paintStyle], [paintTech], [price], [stock]) like '%" + valueToSearch + "%'";
+        //    command = new SqlCommand(query, con);
+        //    con.Open();
+        //    SqlDataReader sdr = command.ExecuteReader();
+        //    if (sdr.HasRows)
+        //    {
+        //        DataList3.DataSource = sdr;
+        //        DataList3.DataBind();
+        //    }
+        //    else
+        //    {
+        //        lblNotice.Text = "Not Data Found";
+        //    }
+        //    con.Close();
 
-        }
+        //}
 
         protected void btnManageSearch_Click(object sender, EventArgs e)
         {
-            string valueToSearch = txtSearch.Text.ToString();
-            searchData(valueToSearch);
+            //string valueToSearch = txtSearch.Text.ToString();
+            //searchData(valueToSearch);
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from artwork WHERE CONCAT([id], [name], [artists], [paintCate], [paintStyle], [paintTech], [price], [stock]) like '%" + txtSearch.Text + "%'", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            DataList1.DataSourceID = null;
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
         }
 
         protected void DataList2_ItemCommand1(object source, DataListCommandEventArgs e)
