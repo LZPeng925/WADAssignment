@@ -14,7 +14,16 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection con;
+            string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            con = new SqlConnection(strCon);
+            con.Open();
             lblTotalPrice.Text = "(not yet calculate)";
+            string query2 = "UPDATE [Cart] SET [Cart].quantity = 0 FROM [artwork], [Cart] WHERE (artwork.id = Cart.id) AND (Cart.UserName = @Username) AND (artwork.stock = 0)";
+            SqlCommand comand2 = new SqlCommand(query2, con);
+            comand2.Parameters.AddWithValue("@Username", Session["Username"]);
+            comand2.ExecuteNonQuery();
+            con.Close();
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
