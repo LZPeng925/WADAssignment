@@ -1,19 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditGallery.aspx.cs" Inherits="Assignment.EditGallery" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Project.Master" CodeBehind="EditGallery.aspx.cs" Inherits="Assignment.EditGallery" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 324px;
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">  
+        <style type="text/css">
+        .tablestyle {
+            margin-left: auto;
+            margin-right: auto;
         }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-         <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
+            .auto-style1 {
+                margin-top: 38px;
+            }
+        </style>
+</asp:Content>  
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
+     <header style="font-size: xx-large; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; text-transform: uppercase; color: #000080; right: auto; left: auto; background-color: #D2ECF2;">
              Edit
          Gallery
         <br />
@@ -182,7 +181,7 @@
                 <td class="auto-style1">
                    
 
-                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()"/>
+                    <asp:FileUpload ID="FileUpload1" runat="server" BackColor="White" ForeColor="Black" onchange="previewFile()" CausesValidation = "false"/>
                     
                     <asp:Label ID="lblUploadPic" runat="server" ForeColor="#CC3300"></asp:Label>
                 &nbsp;
@@ -217,7 +216,4 @@
          </center>
        
             </div>
-
-    </form>
-</body>
-</html>
+</asp:Content>  

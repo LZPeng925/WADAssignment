@@ -225,9 +225,18 @@ namespace Assignment
             SqlDataAdapter sda = new SqlDataAdapter("Select * from artwork WHERE CONCAT([id], [name], [artists], [paintCate], [paintStyle], [paintTech], [price], [stock]) like '%" + txtSearch.Text + "%'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            DataList1.DataSourceID = null;
-            DataList1.DataSource = dt;
-            DataList1.DataBind();
+            if (Session["Role"].ToString() == "Customer")
+            {
+                DataList1.DataSourceID = null;
+                DataList1.DataSource = dt;
+                DataList1.DataBind();
+            }
+            else
+            {
+                DataList2.DataSourceID = null;
+                DataList2.DataSource = dt;
+                DataList2.DataBind();
+            }
         }
 
         protected void DataList2_ItemCommand1(object source, DataListCommandEventArgs e)

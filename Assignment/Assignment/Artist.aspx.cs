@@ -19,6 +19,7 @@ namespace Assignment
             FileUpload1.Enabled = false;
             if (!IsPostBack)
             {
+                btnEdit.CausesValidation = false;
                 try
                 {
                     SqlConnection con;
@@ -98,6 +99,7 @@ namespace Assignment
         {
             if (btnEdit.Text == "Edit Profile")
             {
+                btnEdit.CausesValidation = true;
                 btnEdit.Text = "Confirm";
                 txtFName.Enabled = true;
                 txtLName.Enabled = true;

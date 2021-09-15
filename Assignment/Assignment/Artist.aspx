@@ -35,7 +35,7 @@
                     <asp:Label ID="lblDisplayError" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style1">
-                    <asp:Button ID="btnEdit" runat="server" Text="Edit Profile" OnClick="btnEdit_Click" />
+                    <asp:Button ID="btnEdit" runat="server" Text="Edit Profile" OnClick="btnEdit_Click"/>
                 </td>
             </tr>
                 </table>
@@ -66,7 +66,7 @@
                 <td class="auto-style1">
                     <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
                     <br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="Format: xxx-xxxxxxx" ForeColor="Red" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="Format: xxxxxxxxxx" ForeColor="Red" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -153,14 +153,14 @@
                     <asp:ListItem>OCBC Bank</asp:ListItem>
                     <asp:ListItem>UOB</asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlBank"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style1">
                     <asp:Label ID="lblBankAcc" runat="server" Text="Bank Account:"></asp:Label>
                 </td>
                 <td class="auto-style1">
                     <asp:TextBox ID="txtBankAcc" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBankAcc"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -169,7 +169,7 @@
                 <td class="auto-style1">
                     &nbsp;</td>
                 <td class="auto-style1">
-                    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" />
+                    <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" OnClick="btnChangePassword_Click" CausesValidation="false"/>
                 </td>
             </tr>
         </table>

@@ -103,7 +103,7 @@
             <td class="auto-style19">
                 <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
                 <br />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="Format: xxx-xxxxxxx" ForeColor="Red" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtPhone" ErrorMessage="Format: xxxxxxxxxx" ForeColor="Red" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr><td class="auto-style20">

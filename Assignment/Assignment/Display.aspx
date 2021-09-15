@@ -116,7 +116,7 @@
                     <asp:SessionParameter Name="artists" SessionField="Username" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:DataList ID="DataList2" class="tablestyle" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Both" RepeatDirection="Horizontal" BackColor="AntiqueWhite" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList2_ItemCommand1">
+            <asp:DataList ID="DataList2" class="tablestyle" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" GridLines="Both" RepeatDirection="Horizontal" BackColor="AntiqueWhite" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnItemCommand="DataList2_ItemCommand1" RepeatColumns="5">
                 <ItemTemplate>
                     ID:
                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />

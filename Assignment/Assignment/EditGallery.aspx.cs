@@ -13,6 +13,7 @@ namespace Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtEditArtists.Enabled = false;
             if (!IsPostBack)
             {
                 SqlConnection con;
@@ -56,33 +57,49 @@ namespace Assignment
             con = new SqlConnection(strCon);
             con.Open();
 
-            if (!FileUpload1.HasFile)
+            if (!FileUpload1.HasFile && Image1.ImageUrl==null)
             {
                 lblUploadPic.Text = "Please Insert Image";
-
             }
             else
             {
-
-                int length = FileUpload1.PostedFile.ContentLength;
-                byte[] pic = new byte[length];
-                FileUpload1.PostedFile.InputStream.Read(pic, 0, length);
-                SqlCommand cmd = new SqlCommand("update artwork set  Name = @ArtwordName , artists = @Artists , paintCate =  @PaintCate , paintStyle =  @PaintStyle , paintTech = @PaintTech , price = @Price, image=@Image ,stock = @stock  where id = @ArtworkID", con);
-                // cmd.Parameters.AddWithValue("@ArtworkID", Session["id"].ToString());
-                cmd.Parameters.AddWithValue("@ArtworkID", lblID.Text);
-                cmd.Parameters.AddWithValue("@ArtwordName", txtEditName.Text);
-                cmd.Parameters.AddWithValue("@Artists", txtEditArtists.Text);
-                cmd.Parameters.AddWithValue("@PaintCate", ddlEditPaintCatego.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@PaintStyle", ddlEditPaintingStyle.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@PaintTech", ddlEditPaintTechniques.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@Price", txtEditPrice.Text);
-                cmd.Parameters.AddWithValue("@Image", pic);
-                cmd.Parameters.AddWithValue("@stock", txtEditStock.Text);
-                cmd.ExecuteScalar();
-                con.Close();
-                byte[] bytes = pic;
-                string strBase64 = Convert.ToBase64String(bytes);
-                Image1.ImageUrl = "data:Image/png;base64," + strBase64;
+                if (Image1.ImageUrl!=null && FileUpload1.HasFile)
+                {
+                    int length = FileUpload1.PostedFile.ContentLength;
+                    byte[] pic = new byte[length];
+                    FileUpload1.PostedFile.InputStream.Read(pic, 0, length);
+                    SqlCommand cmd = new SqlCommand("update artwork set  Name = @ArtwordName , artists = @Artists , paintCate =  @PaintCate , paintStyle =  @PaintStyle , paintTech = @PaintTech , price = @Price, image=@Image ,stock = @stock  where id = @ArtworkID", con);
+                    // cmd.Parameters.AddWithValue("@ArtworkID", Session["id"].ToString());
+                    cmd.Parameters.AddWithValue("@ArtworkID", lblID.Text);
+                    cmd.Parameters.AddWithValue("@ArtwordName", txtEditName.Text);
+                    cmd.Parameters.AddWithValue("@Artists", txtEditArtists.Text);
+                    cmd.Parameters.AddWithValue("@PaintCate", ddlEditPaintCatego.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PaintStyle", ddlEditPaintingStyle.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PaintTech", ddlEditPaintTechniques.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Price", txtEditPrice.Text);
+                    cmd.Parameters.AddWithValue("@Image", pic);
+                    cmd.Parameters.AddWithValue("@stock", txtEditStock.Text);
+                    cmd.ExecuteScalar();
+                    con.Close();
+                    byte[] bytes = pic;
+                    string strBase64 = Convert.ToBase64String(bytes);
+                    Image1.ImageUrl = "data:Image/png;base64," + strBase64;
+                }
+                else
+                {
+                    SqlCommand cmd = new SqlCommand("update artwork set  Name = @ArtwordName , artists = @Artists , paintCate =  @PaintCate , paintStyle =  @PaintStyle , paintTech = @PaintTech , price = @Price ,stock = @stock  where id = @ArtworkID", con);
+                    // cmd.Parameters.AddWithValue("@ArtworkID", Session["id"].ToString());
+                    cmd.Parameters.AddWithValue("@ArtworkID", lblID.Text);
+                    cmd.Parameters.AddWithValue("@ArtwordName", txtEditName.Text);
+                    cmd.Parameters.AddWithValue("@Artists", txtEditArtists.Text);
+                    cmd.Parameters.AddWithValue("@PaintCate", ddlEditPaintCatego.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PaintStyle", ddlEditPaintingStyle.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PaintTech", ddlEditPaintTechniques.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Price", txtEditPrice.Text);
+                    cmd.Parameters.AddWithValue("@stock", txtEditStock.Text);
+                    cmd.ExecuteScalar();
+                    con.Close();
+                }
                 lblInformation.Text = "Succesfully!";
             }
 
