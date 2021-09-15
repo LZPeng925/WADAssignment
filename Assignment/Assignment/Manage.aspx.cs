@@ -78,12 +78,12 @@ namespace Assignment
             }
 
         }
-        
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Display.aspx");
         }
+
         //protected void btnManageUpload_Click(object sender, EventArgs e)
         //{
         //    SqlConnection con;

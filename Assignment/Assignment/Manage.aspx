@@ -270,7 +270,7 @@
            
 
             <br/>
-            <asp:Button ID="Button1" runat="server"  Text="Back To Menu" Height="33px" Width="171px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="Button1_Click" PostBackUrl="~/Display.aspx" />
+            <asp:Button ID="Button1" runat="server"  Text="Back To Menu" Height="33px" Width="171px" BackColor="#000066" Font-Bold="True" ForeColor="White" OnClick="Button1_Click" PostBackUrl="~/Display.aspx" CausesValidation="false" />
             
 
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
