@@ -44,6 +44,7 @@ namespace Assignment
             txtNumber.Text = String.Format("{0:0.##}", Output2);
 
             con.Close();
+
         }
 
 
@@ -134,6 +135,11 @@ namespace Assignment
             {
                 Label1.Visible = false;
                 ddlNameofBank.Visible = false;
+            }
+
+            if (txtAmount.Text == "")
+            {
+                btnPay.Enabled = false;
             }
         }
 
