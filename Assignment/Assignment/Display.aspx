@@ -21,6 +21,7 @@
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtSearch" AutoPostBack="true" runat="server"></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server"></asp:Label>
                     <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="lblNotice" runat="server" ForeColor="Red"></asp:Label >

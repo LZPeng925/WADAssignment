@@ -106,7 +106,7 @@
         <asp:Button ID="btnPay" runat="server" Text="Pay" Width="100%" Enabled="False" OnClick="btnPay_Click" />
                         <br />
                         <br />
-                        <asp:Button ID="Button2" runat="server" Text="Cancel" PostBackUrl="~/ButtonTest.aspx" Width="100%" OnClick="Button2_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Cancel" Width="100%" OnClick="Button2_Click" />
                     </td>
                 </tr>
             </table>

@@ -47,44 +47,84 @@ namespace Assignment
             else
             {
                 SqlConnection con;
-                int maxCartID;
+                int updateCartQuantity, stockNum;
+                string cartCheck;
                 string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 con = new SqlConnection(strCon);
 
                 con.Open();
                 string query1 = "SELECT MAX(cartID) AS MaximumID FROM [dbo].[Cart]";
-                string query2 = "INSERT INTO [dbo].[Cart](cartID, UserName, id, quantity) VALUES (@maxCartID, @UserName, @id, @Quantity)";
-                string query3 = "DELETE FROM [WishList] WHERE WishListID = @WishListID";
+                string query2 = "INSERT INTO [dbo].[Cart](UserName, id, quantity) VALUES (@UserName, @id, @Quantity)";
+                string query3 = "SELECT id FROM [dbo].[Cart] WHERE (UserName = @Username) AND (id = @idCheck)";
+                string query4 = "SELECT quantity FROM [dbo].[Cart] WHERE (UserName = @Username) AND (id = @idCheck)";
+                string query5 = "UPDATE [Cart] SET quantity = @newQuantity WHERE (id = @idCheck)";
+                string query6 = "SELECT stock FROM [dbo].[artwork] WHERE (id = @idCheck)";
+
                 SqlCommand comand = new SqlCommand(query1, con);
                 SqlCommand comand2 = new SqlCommand(query2, con);
                 SqlCommand comand3 = new SqlCommand(query3, con);
+                SqlCommand comand4 = new SqlCommand(query4, con);
+                SqlCommand comand5 = new SqlCommand(query5, con);
+                SqlCommand comand6 = new SqlCommand(query6, con);
                 comand.ExecuteNonQuery();
-                //maxCartID = 1;
-                maxCartID = (int)comand.ExecuteScalar();
-                maxCartID += 1;
-                try
-                {
-                    Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
-                    Label idOFWish = e.Item.FindControl("WishListIDLabel") as Label;
-                    comand2.Parameters.AddWithValue("@maxCartID", maxCartID);
-                    comand2.Parameters.AddWithValue("@UserName", Session["Username"].ToString());
-                    comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
-                    comand2.Parameters.AddWithValue("@Quantity", 1);
-                    comand2.ExecuteNonQuery();
 
-                    comand3.Parameters.AddWithValue("@WishListID", idOFWish.Text.ToString());
+                Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
+                Label stockCheck = e.Item.FindControl("stockLabel") as Label;
+
+                if (stockCheck.Text.Equals("0"))
+                {
+                    Response.Write("<script>alert('No more stock');</script>");
+                }
+                else
+                {
+                    comand3.Parameters.AddWithValue("@Username", Session["Username"]);
+                    comand3.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
                     comand3.ExecuteNonQuery();
-                    DataList1.DataBind();
-                    Response.Write("<script>alert('Add Successfully');</script>");
-                }
-                catch
-                {
-                    Response.Write("<script>alert('There are something have problem');</script>");
-                }
+                    cartCheck = (string)comand3.ExecuteScalar();
 
-                con.Close();
-                //Response.Redirect("Artist.aspx");
-                //addtocart
+                    if (cartCheck == null)
+                    {
+                        comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
+                        comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
+                        comand2.Parameters.AddWithValue("@Quantity", 1);
+                        comand2.ExecuteNonQuery();
+                        Response.Write("<script>alert('Add Successfully');</script>");
+                    }
+                    else if (cartCheck != null)
+                    {
+                        comand6.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                        stockNum = (int)comand6.ExecuteScalar();
+
+                        comand4.Parameters.AddWithValue("@Username", Session["Username"]);
+                        comand4.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                        comand4.ExecuteNonQuery();
+
+                        updateCartQuantity = (int)comand4.ExecuteScalar();
+
+
+
+                        if (updateCartQuantity < stockNum)
+                        {
+                            updateCartQuantity += 1;
+                            comand5.Parameters.AddWithValue("@newQuantity", updateCartQuantity);
+                            comand5.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+
+                            try
+                            {
+                                comand5.ExecuteNonQuery();
+                                Response.Write("<script>alert('Add Successfully');</script>");
+                            }
+                            catch
+                            {
+                                Response.Write("<script>alert('Update Fail');</script>");
+                            }
+                        }
+                        else if (updateCartQuantity >= stockNum)
+                        {
+                            Response.Write("<script>alert('No more stock');</script>");
+                        }
+                    }
+                }
             }
         }
 

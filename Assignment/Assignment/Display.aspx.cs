@@ -76,52 +76,63 @@ namespace Assignment
                 try
                 {
                     Label idOFArtwork = e.Item.FindControl("idLabel") as Label;
+                    Label stockCheck = e.Item.FindControl("stockLabel") as Label;
 
-                    comand3.Parameters.AddWithValue("@Username", Session["Username"]);
-                    comand3.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
-                    comand3.ExecuteNonQuery();
-                    cartCheck = (string)comand3.ExecuteScalar();
-
-                    if (cartCheck == null)
+                    if (stockCheck.Text.Equals("0"))
                     {
-                        comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
-                        comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
-                        comand2.Parameters.AddWithValue("@Quantity", 1);
-                        comand2.ExecuteNonQuery();
-                        Response.Write("<script>alert('Add Successfully');</script>");
+                        Response.Write("<script>alert('No more stock');</script>");
                     }
-                    else if (cartCheck != null)
+                    else
                     {
-                        comand6.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
-                        stockNum = (int)comand6.ExecuteScalar();
+                        comand3.Parameters.AddWithValue("@Username", Session["Username"]);
+                        comand3.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                        comand3.ExecuteNonQuery();
+                        cartCheck = (string)comand3.ExecuteScalar();
 
-                        comand4.Parameters.AddWithValue("@Username", Session["Username"]);
-                        comand4.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
-                        comand4.ExecuteNonQuery();
-
-                        updateCartQuantity = (int)comand4.ExecuteScalar();
-
-                        if (updateCartQuantity < stockNum)
+                        if (cartCheck == null)
                         {
-                            updateCartQuantity += 1;
-                            comand5.Parameters.AddWithValue("@newQuantity", updateCartQuantity);
-                            comand5.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                            comand2.Parameters.AddWithValue("@UserName", Session["Username"]);
+                            comand2.Parameters.AddWithValue("@id", idOFArtwork.Text.ToString());
+                            comand2.Parameters.AddWithValue("@Quantity", 1);
+                            comand2.ExecuteNonQuery();
+                            Response.Write("<script>alert('Add Successfully');</script>");
+                        }
+                        else if (cartCheck != null)
+                        {
+                            comand6.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                            stockNum = (int)comand6.ExecuteScalar();
 
-                            try
+                            comand4.Parameters.AddWithValue("@Username", Session["Username"]);
+                            comand4.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+                            comand4.ExecuteNonQuery();
+
+                            updateCartQuantity = (int)comand4.ExecuteScalar();
+
+
+
+                            if (updateCartQuantity < stockNum)
                             {
-                                comand5.ExecuteNonQuery();
-                                Response.Write("<script>alert('Add Successfully');</script>");
+                                updateCartQuantity += 1;
+                                comand5.Parameters.AddWithValue("@newQuantity", updateCartQuantity);
+                                comand5.Parameters.AddWithValue("@idCheck", idOFArtwork.Text.ToString());
+
+                                try
+                                {
+                                    comand5.ExecuteNonQuery();
+                                    Response.Write("<script>alert('Add Successfully');</script>");
+                                }
+                                catch
+                                {
+                                    Response.Write("<script>alert('Update Fail');</script>");
+                                }
                             }
-                            catch
+                            else if (updateCartQuantity >= stockNum)
                             {
-                                Response.Write("<script>alert('Update Fail');</script>");
+                                Response.Write("<script>alert('No more stock');</script>");
                             }
                         }
-                        else if (updateCartQuantity >= stockNum)
-                        {
-                            Response.Write("<script>alert('No more stock');</script>");
-                        }
                     }
+                    
 
                 }
                 catch
